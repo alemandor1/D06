@@ -266,6 +266,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `sponsor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `credit_card` varchar(255),
+        `organisation_name` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `user_account` (
        `id` integer not null,
         `version` integer not null,
@@ -326,6 +335,7 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
 
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
+create index IDXkgrwhfiir4sncbxbx4k1o34j3 on `sponsor` (`user_account_id`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
@@ -428,6 +438,11 @@ create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
 
     alter table `request_auditor` 
        add constraint `FKa6m3imjvm1a1xjc0u4o4dxmks` 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `sponsor` 
+       add constraint FK_20xk0ev32hlg96kqynl6laie2 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 

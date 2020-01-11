@@ -79,6 +79,10 @@
        drop 
        foreign key `FKa6m3imjvm1a1xjc0u4o4dxmks`;
 
+    alter table `sponsor` 
+       drop 
+       foreign key FK_20xk0ev32hlg96kqynl6laie2;
+
     alter table `worker` 
        drop 
        foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
@@ -134,6 +138,8 @@
     drop table if exists `requests`;
 
     drop table if exists `spam`;
+
+    drop table if exists `sponsor`;
 
     drop table if exists `user_account`;
 

@@ -47,10 +47,6 @@ master.menu.administrator.list-investor-records = Investors
 master.menu.administrator.list-challenges = Challenges
 master.menu.administrator.list-company-record = Companies
 master.menu.administrator.create-company-record = Create company
-master.menu.administrator.list-commercial-banner = Commercial banners
-master.menu.administrator.create-commercial-banner = Create commercial banner
-master.menu.administrator.list-non-commercial-banner = Non commercial banners
-master.menu.administrator.create-non-commercial-banner = Create non commercial banner
 master.menu.administrator.request-auditor = Requests auditor
 
 # master.menu.authenticated ########################################################
@@ -94,6 +90,14 @@ master.menu.employer.create-job = Create job
 master.menu.worker = Worker
 master.menu.worker.list-applications-mine = My applications
 
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.list-commercial-banner = Commercial banners
+master.menu.sponsor.create-commercial-banner = Create commercial banner
+master.menu.sponsor.list-non-commercial-banner = Non commercial banners
+master.menu.sponsor.create-non-commercial-banner = Create non commercial banner
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -108,6 +112,8 @@ master.menu.user-account.worker = Worker data
 master.menu.user-account.become-worker = Become a worker
 master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Request to become an auditor
+master.menu.user-account.sponsor = Sponsor data
+master.menu.user-account.become-sponsor = Become a sponsor
 
 # master.footer ###############################################################
 
