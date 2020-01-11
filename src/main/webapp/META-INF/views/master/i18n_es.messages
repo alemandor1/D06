@@ -63,22 +63,12 @@ master.menu.authenticated.list-active-jobs = Trabajos
 master.menu.authenticated.list-message-thread = Hilos de mensajes (Involucrado)
 master.menu.authenticated.create-message-thread = Crear hilo de mensajes
 
-# master.menu.provider ########################################################
-
-master.menu.provider = Proveedor
-master.menu.provider.create-request = Crear solicitud
-
 # master.menu.employer ##########################################################
 
 master.menu.employer = Empleador/a
 master.menu.employer.list-jobs-mine = Mis trabajos
 master.menu.employer.list-applications-mine = Aplicaciones hechas a mis trabajos
 master.menu.employer.create-job = Crear trabajo
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumidor
-master.menu.consumer.create-offer = Crear oferta
 
 # master.menu.auditor ########################################################
 
@@ -103,10 +93,6 @@ master.menu.sponsor.create-non-commercial-banner = Crear banner no comercial
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.employer = Datos de empleador
 master.menu.user-account.become-employer = Hazte empleador
 master.menu.user-account.worker = Datos de trabajador

@@ -15,6 +15,7 @@ package acme.features.authenticated.userAccount;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -27,12 +28,23 @@ public interface AuthenticatedUserAccountRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = ?1")
 	UserAccount findOneUserAccountById(int id);
 
-	@Query("select ua from UserAccount ua where ua.enabled = true and ua.username != 'administrator' and ua.id not in(select u.id from MessageThread mt join mt.users u where mt.id = ?1)")
-	Collection<UserAccount> findManyUsers(int id);
+	@Query("select ua from UserAccount ua where ua.enabled = true and ua.username != 'administrator' and ua.id not in(select mt.userAccount.id from MessageThreadUserAccount mt where mt.messageThread.id = ?1)")
+	Collection<UserAccount> findManyUsers(int idMessageThread);
 
-	@Query("select u from MessageThread mt join mt.users u where mt.id = ?1")
-	Collection<UserAccount> findUserOfMessageThread(int id);
+	@Query("select mt.userAccount from MessageThreadUserAccount mt where mt.messageThread.id = ?1")
+	Collection<UserAccount> findUserOfMessageThread(int idMessageThread);
 
-	@Query("select u.id from MessageThread mt join mt.users u where mt.id = ?1")
-	List<Integer> isCreatorUser(int id);
+	@Query("select mt.userAccount.id from MessageThreadUserAccount mt where mt.messageThread.id = ?1")
+	List<Integer> findManagerUser(int idMessageThread, PageRequest pageRequest);
+
+	default Integer findFirstUserId(final int idMessageThread) {
+		Integer res;
+		PageRequest page;
+		List<Integer> list;
+
+		page = PageRequest.of(0, 1);
+		list = this.findManagerUser(idMessageThread, page);
+		res = list.isEmpty() ? null : list.get(0);
+		return res;
+	}
 }
