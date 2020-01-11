@@ -18,6 +18,7 @@ administrator.user-account.form.label.email = Email:
 administrator.user-account.form.label.role-list = Roles:
 administrator.user-account.form.label.status = Status:
 administrator.user-account.form.label.new-status = New status:
+administrator.user-account.form.label.phone = Phone
 
 administrator.user-account.form.button.update = Update
 administrator.user-account.form.button.return = Return
