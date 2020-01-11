@@ -19,11 +19,15 @@ authenticated.message-threads.form.button.create = Crear
 authenticated.message-threads.form.button.list-all-users = Usuarios no involucrados en este hilo
 authenticated.message-threads.form.button.list-users-message-thread = Usuarios involucrados en este hilo
 authenticated.message-threads.form.label.username = Nombre de usuario
-authenticated.message-threads.form.button.action-user = Añadir o eliminar usuario
-authenticated.message-threads.form.label.message = Si quiere añadir un usuario, introduzca el nombre de usuario de quién no esta involucrado en este hilo ó introduzca el nombre de usuario de quien esté involucrado en este hilo para eliminarlo.
+authenticated.message-threads.form.button.add-user = Añadir
+authenticated.message-threads.form.button.delete-user = Eliminar
+
+authenticated.message-threads.form.button.action-user = Gestionar usuarios
 
 authenticated.message-threads.list.label.title = Título
 authenticated.message-threads.list.label.moment = Momento
 
 authenticated.message-thread.error.spam-entity = El hilo contiene demasiadas palabras spam
 authenticated.message-thread.error.username = Este nombre de usuario no existe
+authenticated.message-thread.error.user-already-in-message-thread = Este usuario ya está involucrado en este hilo de mensajes
+authenticated.message-thread.error.user-not-in-message-thread = Este usuario no está involucrado en este hilo de mensajes

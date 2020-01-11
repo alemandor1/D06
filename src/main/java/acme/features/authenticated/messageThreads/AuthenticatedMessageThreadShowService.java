@@ -30,7 +30,7 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("creatorUser", this.repository.isCreatorUser(entity.getId()).get(0).equals(request.getPrincipal().getAccountId()));
+		model.setAttribute("creatorUser", this.repository.findFirstUserId(entity.getId()).equals(request.getPrincipal().getAccountId()));
 
 		request.unbind(entity, model, "title", "moment");
 
@@ -45,8 +45,6 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 
 		id = request.getModel().getInteger("id");
 		res = this.repository.findOneMessageThreadById(id);
-		res.getUsers().size();
-		res.getUsers().forEach(x -> x.getRoles().size());
 
 		return res;
 	}
