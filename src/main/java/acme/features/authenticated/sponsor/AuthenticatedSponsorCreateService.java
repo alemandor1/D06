@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Sponsor;
-import acme.entities.roles.Worker;
 import acme.entities.spams.Spam;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -31,7 +30,7 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 	public boolean authorise(final Request<Sponsor> request) {
 		assert request != null;
 
-		return !request.getPrincipal().hasRole(Worker.class);
+		return !request.getPrincipal().hasRole(Sponsor.class);
 	}
 
 	@Override

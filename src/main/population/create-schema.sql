@@ -108,15 +108,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `consumer` (
-       `id` integer not null,
-        `version` integer not null,
-        `user_account_id` integer,
-        `company` varchar(255),
-        `sector` varchar(255),
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `descriptor` (
        `id` integer not null,
         `version` integer not null,
@@ -197,8 +188,11 @@
     ) engine=InnoDB;
 
     create table `message_thread_user_account` (
-       `message_thread_id` integer not null,
-        `users_id` integer not null
+       `id` integer not null,
+        `version` integer not null,
+        `message_thread_id` integer not null,
+        `user_account_id` integer not null,
+        primary key (`id`)
     ) engine=InnoDB;
 
     create table `non_commercial_banner` (
@@ -223,15 +217,6 @@
         `text` varchar(255),
         `ticker` varchar(255),
         `title` varchar(255),
-        primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `provider` (
-       `id` integer not null,
-        `version` integer not null,
-        `user_account_id` integer,
-        `company` varchar(255),
-        `sector` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -308,7 +293,6 @@ create index IDX5wwxv107kvi5si12nh4226lnx on `application` (`status`, `moment` d
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDXof878cqun8l1ynh0ao94bw3au on `audit_record` (`status`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
-create index IDXarifnivwmckxueloi09uraj6o on `consumer` (`user_account_id`);
 create index IDX3e0qjxdhy5mdlo9e3cm15akly on `employer` (`user_account_id`);
 create index IDXal59yunywnkwi09ps7jxpr18c on `job` (`status`, `deadline`);
 create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
@@ -326,7 +310,6 @@ create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
-create index IDX1amtl2d1x4a6qs0l55i3fo68j on `provider` (`user_account_id`);
 create index IDX4riem6gjhfr8dy2ex40hckw6d on `request_auditor` (`status`);
 
     alter table `request_auditor` 
@@ -381,11 +364,6 @@ create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `consumer` 
-       add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
-       foreign key (`user_account_id`) 
-       references `user_account` (`id`);
-
     alter table `duty` 
        add constraint `FK3cc3garl37bl7gswreqwr7pj4` 
        foreign key (`descriptor_id`) 
@@ -422,17 +400,12 @@ create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
        references `user_account` (`id`);
 
     alter table `message_thread_user_account` 
-       add constraint `FKnbmip5t870fxbecafgaxvyde8` 
-       foreign key (`users_id`) 
-       references `user_account` (`id`);
-
-    alter table `message_thread_user_account` 
        add constraint `FKtchis3o5qij98x87mty6hdk4d` 
        foreign key (`message_thread_id`) 
        references `message_thread` (`id`);
 
-    alter table `provider` 
-       add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
+    alter table `message_thread_user_account` 
+       add constraint `FK5lulj1y29jm6k2b4mle9218ap` 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
