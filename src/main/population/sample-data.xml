@@ -1108,4 +1108,35 @@
 		<property name= "messageThread" ref= "messageThread02"/>
 	</bean> 
 	
+	<!-- Sponsor -->
+
+<bean name="sponsorUserAccount01" class="acme.framework.entities.UserAccount">
+		<property name="username" value="sponsor01" />
+		<property name="password" value="sponsor01" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="David" />
+				<property name="surname" value="Walker" />
+				<property name="email" value="david.walker@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="sponsor01"/>
+				<ref bean="sponsorAuthenticated01"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="sponsor01" class="acme.entities.roles.Sponsor">
+		<property name="userAccount" ref="sponsorUserAccount01" />
+		<property name= "organisationName" value= "US"/>
+		<property name= "creditCard" value= "5062881934253656"/>
+	</bean>
+	
+	<bean name="sponsorAuthenticated01" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="sponsorUserAccount01" />
+	</bean>	
+	
 </beans>

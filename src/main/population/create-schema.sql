@@ -108,15 +108,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `consumer` (
-       `id` integer not null,
-        `version` integer not null,
-        `user_account_id` integer,
-        `company` varchar(255),
-        `sector` varchar(255),
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `descriptor` (
        `id` integer not null,
         `version` integer not null,
@@ -229,15 +220,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `provider` (
-       `id` integer not null,
-        `version` integer not null,
-        `user_account_id` integer,
-        `company` varchar(255),
-        `sector` varchar(255),
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `request_auditor` (
        `id` integer not null,
         `version` integer not null,
@@ -266,6 +248,15 @@
         `version` integer not null,
         `spam` varchar(255),
         `threshold` double precision not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `sponsor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `credit_card` varchar(255),
+        `organisation_name` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -305,7 +296,6 @@ create index IDX5wwxv107kvi5si12nh4226lnx on `application` (`status`, `moment` d
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDXof878cqun8l1ynh0ao94bw3au on `audit_record` (`status`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
-create index IDXarifnivwmckxueloi09uraj6o on `consumer` (`user_account_id`);
 create index IDX3e0qjxdhy5mdlo9e3cm15akly on `employer` (`user_account_id`);
 create index IDXal59yunywnkwi09ps7jxpr18c on `job` (`status`, `deadline`);
 create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
@@ -323,7 +313,6 @@ create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
-create index IDX1amtl2d1x4a6qs0l55i3fo68j on `provider` (`user_account_id`);
 create index IDX4riem6gjhfr8dy2ex40hckw6d on `request_auditor` (`status`);
 
     alter table `request_auditor` 
@@ -332,6 +321,7 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
 
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
+create index IDXkgrwhfiir4sncbxbx4k1o34j3 on `sponsor` (`user_account_id`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
@@ -374,11 +364,6 @@ create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
 
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
-       foreign key (`user_account_id`) 
-       references `user_account` (`id`);
-
-    alter table `consumer` 
-       add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
@@ -427,13 +412,13 @@ create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `provider` 
-       add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
+    alter table `request_auditor` 
+       add constraint `FKa6m3imjvm1a1xjc0u4o4dxmks` 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `request_auditor` 
-       add constraint `FKa6m3imjvm1a1xjc0u4o4dxmks` 
+    alter table `sponsor` 
+       add constraint FK_20xk0ev32hlg96kqynl6laie2 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
