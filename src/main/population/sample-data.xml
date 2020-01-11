@@ -958,24 +958,38 @@
 	<bean id="messageThread01" class="acme.entities.messageThreads.MessageThread">
 		<property name= "title" value= "Message thread1"/>
 		<property name= "moment" value= "2019/04/10 14:00"/>
-		<property name= "users">
-			<list>
-				<ref bean="employerUserAccount01"/>
-				<ref bean="employerUserAccount02"/>
-				<ref bean="auditorUserAccount01"/>
-			</list>
-		</property>
 	</bean> 
 	
 	<bean id="messageThread02" class="acme.entities.messageThreads.MessageThread">
 		<property name= "title" value= "Message thread2"/>
 		<property name= "moment" value= "2018/04/25 14:00"/>
-		<property name= "users">
-			<list>
-				<ref bean="employerUserAccount02"/>
-				<ref bean="auditorUserAccount01"/>
-			</list>
-		</property>
+	</bean> 
+	
+	<!-- MessageThreadUserAccount -->
+	
+	<bean id="messageThreadUserAccount01" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "employerUserAccount01"/>
+		<property name= "messageThread" ref= "messageThread01"/>
+	</bean> 
+	
+	<bean id="messageThreadUserAccount02" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "employerUserAccount02"/>
+		<property name= "messageThread" ref= "messageThread01"/>
+	</bean> 
+	
+	<bean id="messageThreadUserAccount03" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "auditorUserAccount01"/>
+		<property name= "messageThread" ref= "messageThread01"/>
+	</bean> 
+	
+	<bean id="messageThreadUserAccount04" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "employerUserAccount02"/>
+		<property name= "messageThread" ref= "messageThread02"/>
+	</bean> 
+	
+	<bean id="messageThreadUserAccount05" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "auditorUserAccount01"/>
+		<property name= "messageThread" ref= "messageThread02"/>
 	</bean> 
 	
 	<!-- Messages -->

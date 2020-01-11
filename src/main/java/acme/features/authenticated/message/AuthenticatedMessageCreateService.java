@@ -60,10 +60,6 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		UserAccount user = this.repository.findUserAccount(request.getPrincipal().getAccountId());
 		MessageThread mThread = this.repository.findMessageThread(request.getModel().getInteger("messageThreadId"));
 
-		if (!mThread.getUsers().contains(user)) {
-			mThread.getUsers().add(user);
-		}
-
 		Message res = new Message();
 
 		res.setUser(user);

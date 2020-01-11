@@ -65,15 +65,11 @@
 
     alter table `message_thread_user_account` 
        drop 
-       foreign key `FKnbmip5t870fxbecafgaxvyde8`;
+       foreign key `FKtchis3o5qij98x87mty6hdk4d`;
 
     alter table `message_thread_user_account` 
        drop 
-       foreign key `FKtchis3o5qij98x87mty6hdk4d`;
-
-    alter table `provider` 
-       drop 
-       foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
+       foreign key `FK5lulj1y29jm6k2b4mle9218ap`;
 
     alter table `request_auditor` 
        drop 
@@ -126,8 +122,6 @@
     drop table if exists `non_commercial_banner`;
 
     drop table if exists `offer`;
-
-    drop table if exists `provider`;
 
     drop table if exists `request_auditor`;
 
