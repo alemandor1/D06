@@ -71,10 +71,6 @@
        drop 
        foreign key `FK5lulj1y29jm6k2b4mle9218ap`;
 
-    alter table `provider` 
-       drop 
-       foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
-
     alter table `request_auditor` 
        drop 
        foreign key `FKa6m3imjvm1a1xjc0u4o4dxmks`;
@@ -126,8 +122,6 @@
     drop table if exists `non_commercial_banner`;
 
     drop table if exists `offer`;
-
-    drop table if exists `provider`;
 
     drop table if exists `request_auditor`;
 
