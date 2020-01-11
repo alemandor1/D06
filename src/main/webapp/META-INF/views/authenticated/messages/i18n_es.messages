@@ -25,4 +25,4 @@ authenticated.message.list.label.username = Usuario
 authenticated.message.list.button.return = Volver
 
 authenticated.message.error.must-accept = Debe aceptar la licencia
-authenticated.message.error.spam-words = El mensaje contiene palabras spam
+authenticated.message.error.spam-words = El mensaje contiene demasiadas palabras spam

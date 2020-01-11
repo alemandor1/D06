@@ -197,8 +197,11 @@
     ) engine=InnoDB;
 
     create table `message_thread_user_account` (
-       `message_thread_id` integer not null,
-        `users_id` integer not null
+       `id` integer not null,
+        `version` integer not null,
+        `message_thread_id` integer not null,
+        `user_account_id` integer not null,
+        primary key (`id`)
     ) engine=InnoDB;
 
     create table `non_commercial_banner` (
@@ -412,14 +415,14 @@ create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
        references `user_account` (`id`);
 
     alter table `message_thread_user_account` 
-       add constraint `FKnbmip5t870fxbecafgaxvyde8` 
-       foreign key (`users_id`) 
-       references `user_account` (`id`);
-
-    alter table `message_thread_user_account` 
        add constraint `FKtchis3o5qij98x87mty6hdk4d` 
        foreign key (`message_thread_id`) 
        references `message_thread` (`id`);
+
+    alter table `message_thread_user_account` 
+       add constraint `FK5lulj1y29jm6k2b4mle9218ap` 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
