@@ -65,11 +65,11 @@
 
     alter table `message_thread_user_account` 
        drop 
-       foreign key `FKnbmip5t870fxbecafgaxvyde8`;
+       foreign key `FKtchis3o5qij98x87mty6hdk4d`;
 
     alter table `message_thread_user_account` 
        drop 
-       foreign key `FKtchis3o5qij98x87mty6hdk4d`;
+       foreign key `FK5lulj1y29jm6k2b4mle9218ap`;
 
     alter table `request_auditor` 
        drop 

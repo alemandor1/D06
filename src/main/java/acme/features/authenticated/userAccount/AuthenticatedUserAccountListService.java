@@ -7,6 +7,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.CustomCommand;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -23,7 +24,7 @@ public class AuthenticatedUserAccountListService implements AbstractListService<
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
 		assert request != null;
-		return this.repository.isCreatorUser(request.getModel().getInteger("messageThreadId")).get(0).equals(request.getPrincipal().getAccountId());
+		return this.repository.findFirstUserId(request.getModel().getInteger("messageThreadId")).equals(request.getPrincipal().getAccountId());
 	}
 
 	@Override
@@ -44,9 +45,9 @@ public class AuthenticatedUserAccountListService implements AbstractListService<
 		Collection<UserAccount> res = new ArrayList<UserAccount>();
 		int MtId = request.getModel().getInteger("messageThreadId");
 
-		if (request.getServletRequest().getParameter("action").equals("all-users")) {
+		if (request.getCommand().equals(CustomCommand.LIST_NOT_INVOLVED_USERS)) {
 			res = this.repository.findManyUsers(MtId);
-		} else if (request.getServletRequest().getParameter("action").equals("users-message-thread")) {
+		} else if (request.getCommand().equals(CustomCommand.LIST_INVOLVED_USERS)) {
 			res = this.repository.findUserOfMessageThread(MtId);
 		}
 		res.forEach(x -> x.getRoles().size());

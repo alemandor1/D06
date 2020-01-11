@@ -6,7 +6,10 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.CustomCommand;
 import acme.entities.messageThreads.MessageThread;
+import acme.entities.messageThreads.MessageThreadUserAccount;
+import acme.entities.messages.Message;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -24,7 +27,7 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 	@Override
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
-		return this.repository.isCreatorUser(request.getModel().getInteger("messageThreadId")).get(0).equals(request.getPrincipal().getAccountId());
+		return this.repository.findFirstUserId(request.getModel().getInteger("messageThreadId")).equals(request.getPrincipal().getAccountId());
 	}
 
 	@Override
@@ -43,7 +46,7 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		assert model != null;
 
 		model.setAttribute("username", "");
-		model.setAttribute("creatorUser", this.repository.isCreatorUser(entity.getId()).get(0).equals(request.getPrincipal().getAccountId()));
+		model.setAttribute("creatorUser", this.repository.findFirstUserId(entity.getId()).equals(request.getPrincipal().getAccountId()));
 		model.setAttribute("messageThreadId", request.getModel().getInteger("messageThreadId"));
 
 		request.unbind(entity, model, "title", "moment");
@@ -67,6 +70,15 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		UserAccount ua = this.repository.findUserAccountByUsername(username);
 		errors.state(request, ua != null, "username", "authenticated.message-thread.error.username");
 
+		if (ua != null) {
+			boolean isUserInMessageThread = this.repository.isUserInMessageThread(entity.getId(), ua.getId());
+			if (request.getCommand().equals(CustomCommand.ADD_USER)) {
+				errors.state(request, !isUserInMessageThread, "username", "authenticated.message-thread.error.user-already-in-message-thread");
+			} else if (request.getCommand().equals(CustomCommand.DELETE_USER)) {
+				errors.state(request, isUserInMessageThread, "username", "authenticated.message-thread.error.user-not-in-message-thread");
+			}
+		}
+
 	}
 
 	@Override
@@ -76,22 +88,25 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 
 		String username = request.getModel().getString("username");
 		UserAccount ua = this.repository.findUserAccountByUsername(username);
-		Collection<UserAccount> users = this.repository.findUserOfMessageThread(entity.getId());
 		ua.getRoles().size();
-		if (users.contains(ua)) {
-			users.remove(ua);
-		} else {
-			users.add(ua);
+
+		MessageThreadUserAccount messageThreadUserAccount;
+		if (request.getCommand().equals(CustomCommand.DELETE_USER)) {
+			messageThreadUserAccount = this.repository.findMessageThreadUserAccount(ua.getId(), entity.getId());
+			this.repository.delete(messageThreadUserAccount);
+		} else if (request.getCommand().equals(CustomCommand.ADD_USER)) {
+			messageThreadUserAccount = new MessageThreadUserAccount();
+			messageThreadUserAccount.setUserAccount(ua);
+			messageThreadUserAccount.setMessageThread(entity);
+			this.repository.save(messageThreadUserAccount);
 		}
-		if (users.isEmpty()) {
-			Collection<Integer> messagesId = this.repository.findMessagesId(request.getModel().getInteger("messageThreadId"));
-			for (Integer i : messagesId) {
-				this.repository.deleteById(i);
-			}
+
+		boolean isEmptyListUsersMessageThread = this.repository.isEmptyListUsersMessageThread(request.getModel().getInteger("messageThreadId"));
+		if (isEmptyListUsersMessageThread) {
+			Collection<Message> messages = this.repository.findMessagesByIdMessageThread(request.getModel().getInteger("messageThreadId"));
+			this.repository.deleteAll(messages);
 			this.repository.delete(entity);
 		} else {
-			entity.setUsers(users);
-			entity.getUsers().size();
 			this.repository.save(entity);
 		}
 	}
