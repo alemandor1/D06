@@ -19,3 +19,4 @@ authenticated.sponsor.worker.form.button.update = Actualizar
 authenticated.sponsor.sponsor.form.button.return = Volver
 
 authenticated.sponsor.error.spam-entity = Los datos del patrocinador contienen demasiadas palabras spam
+authenticated.sponsor.error.invalid-credit-card = Número de tarjeta de crédito inválido

@@ -16,7 +16,7 @@ import acme.framework.services.AbstractListService;
 public class SponsorNonCommercialBannerListService implements AbstractListService<Sponsor, NonCommercialBanner> {
 
 	@Autowired
-	SponsorNonCommercialBannerRepository repository;
+	private SponsorNonCommercialBannerRepository repository;
 
 
 	@Override
@@ -39,7 +39,7 @@ public class SponsorNonCommercialBannerListService implements AbstractListServic
 	public Collection<NonCommercialBanner> findMany(final Request<NonCommercialBanner> request) {
 		assert request != null;
 		Collection<NonCommercialBanner> result;
-		result = this.repository.findMany();
+		result = this.repository.findMany(request.getPrincipal().getActiveRoleId());
 		return result;
 	}
 

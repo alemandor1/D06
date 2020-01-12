@@ -1,8 +1,11 @@
 
 package acme.features.authenticated.sponsor;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import org.hibernate.validator.internal.constraintvalidators.hv.LuhnCheckValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -83,6 +86,17 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 		int spamOrganisationName = (int) (Arrays.asList(spamWords).stream().filter(x -> entity.getOrganisationName().toLowerCase().contains(x.toLowerCase().trim())).count() * 100 / spamWords.length);
 		boolean isSponsorSpam = spamOrganisationName <= spam.getThreshold();
 		errors.state(request, isSponsorSpam, "organisationName", "authenticated.sponsor.error.spam-entity");
+
+		String creditCard = entity.getCreditCard();
+		if (!creditCard.isEmpty()) {
+			List<Integer> listaNumeros = new ArrayList<Integer>();
+			for (int i = 0; i < creditCard.length() - 1; i++) {
+				listaNumeros.add(Integer.parseInt(String.valueOf(creditCard.charAt(i))));
+			}
+			LuhnCheckValidator v = new LuhnCheckValidator();
+			boolean b = v.isCheckDigitValid(listaNumeros, creditCard.charAt(creditCard.length() - 1));
+			errors.state(request, b, "creditCard", "authenticated.sponsor.error.invalid-credit-card");
+		}
 	}
 
 	@Override

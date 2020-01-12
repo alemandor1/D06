@@ -84,9 +84,9 @@ master.menu.worker.list-applications-mine = Mis aplicaciones
 # master.menu.sponsor ##########################################################
 
 master.menu.sponsor = Patrocinador
-master.menu.sponsor.list-commercial-banner = Banners comerciales
+master.menu.sponsor.list-commercial-banner = Mis banners comerciales
 master.menu.sponsor.create-commercial-banner = Crear banner comercial
-master.menu.sponsor.list-non-commercial-banner = Banners no comerciales
+master.menu.sponsor.list-non-commercial-banner = Mis banners no comerciales
 master.menu.sponsor.create-non-commercial-banner = Crear banner no comercial
 
 # master.menu.user-account ####################################################

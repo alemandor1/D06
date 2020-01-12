@@ -17,7 +17,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list readonly="false">
-	<acme:list-column code="sponsor.non-commercial-banner.list.label.slogan" path="slogan" width="20%"/>
+	<acme:list-column code="sponsor.non-commercial-banner.list.label.slogan" path="slogan"/>
 </acme:list>
 
 

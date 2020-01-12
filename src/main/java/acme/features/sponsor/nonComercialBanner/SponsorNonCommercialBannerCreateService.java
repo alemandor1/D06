@@ -15,7 +15,7 @@ import acme.framework.services.AbstractCreateService;
 public class SponsorNonCommercialBannerCreateService implements AbstractCreateService<Sponsor, NonCommercialBanner> {
 
 	@Autowired
-	SponsorNonCommercialBannerRepository repository;
+	private SponsorNonCommercialBannerRepository repository;
 
 
 	@Override
@@ -60,6 +60,10 @@ public class SponsorNonCommercialBannerCreateService implements AbstractCreateSe
 		NonCommercialBanner result;
 
 		result = new NonCommercialBanner();
+
+		Sponsor sponsor = this.repository.findSponsorById(request.getPrincipal().getActiveRoleId());
+
+		result.setSponsor(sponsor);
 
 		return result;
 	}

@@ -89,6 +89,7 @@
         `link` varchar(255),
         `picture` varchar(255),
         `slogan` varchar(255),
+        `sponsor_id` integer not null,
         `credit_card` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
@@ -201,6 +202,7 @@
         `link` varchar(255),
         `picture` varchar(255),
         `slogan` varchar(255),
+        `sponsor_id` integer not null,
         `jingle` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
@@ -296,7 +298,6 @@ create index IDX5wwxv107kvi5si12nh4226lnx on `application` (`status`, `moment` d
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDXof878cqun8l1ynh0ao94bw3au on `audit_record` (`status`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
-create index IDX3e0qjxdhy5mdlo9e3cm15akly on `employer` (`user_account_id`);
 create index IDXal59yunywnkwi09ps7jxpr18c on `job` (`status`, `deadline`);
 create index IDX28ur9xm72oo1df9g14xhnh8h3 on `job` (`status`);
 create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
@@ -321,11 +322,9 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
 
     alter table `requests` 
        add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
-create index IDXkgrwhfiir4sncbxbx4k1o34j3 on `sponsor` (`user_account_id`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
-create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
 
     alter table `administrator` 
        add constraint FK_2a5vcjo3stlfcwadosjfq49l1 
@@ -366,6 +365,11 @@ create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `commercial_banner` 
+       add constraint FK_q9id3wc65gg49afc5tlr1c00n 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
 
     alter table `duty` 
        add constraint `FK3cc3garl37bl7gswreqwr7pj4` 
@@ -411,6 +415,11 @@ create index IDXldvd2iai9jb731mxg9he7vw31 on `worker` (`user_account_id`);
        add constraint `FK5lulj1y29jm6k2b4mle9218ap` 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `non_commercial_banner` 
+       add constraint FK_2l8gpcwh19e7jj513or4r9dvb 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
 
     alter table `request_auditor` 
        add constraint `FKa6m3imjvm1a1xjc0u4o4dxmks` 

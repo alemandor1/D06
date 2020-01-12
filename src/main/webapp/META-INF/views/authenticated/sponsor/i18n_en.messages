@@ -19,3 +19,4 @@ authenticated.sponsor.sponsor.form.button.update = Update
 authenticated.sponsor.sponsor.form.button.return = Return
 
 authenticated.sponsor.error.spam-entity = Sponsor data contain too much spam words
+authenticated.sponsor.error.invalid-credit-card = Invalid credit card number

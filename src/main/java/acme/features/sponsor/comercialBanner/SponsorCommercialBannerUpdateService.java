@@ -15,14 +15,14 @@ import acme.framework.services.AbstractUpdateService;
 public class SponsorCommercialBannerUpdateService implements AbstractUpdateService<Sponsor, CommercialBanner> {
 
 	@Autowired
-	SponsorCommercialBannerRepository repository;
+	private SponsorCommercialBannerRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		return this.repository.isCorrectCommercialBanner(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

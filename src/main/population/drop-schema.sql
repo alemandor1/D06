@@ -31,6 +31,10 @@
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
 
+    alter table `commercial_banner` 
+       drop 
+       foreign key FK_q9id3wc65gg49afc5tlr1c00n;
+
     alter table `duty` 
        drop 
        foreign key `FK3cc3garl37bl7gswreqwr7pj4`;
@@ -66,6 +70,10 @@
     alter table `message_thread_user_account` 
        drop 
        foreign key `FK5lulj1y29jm6k2b4mle9218ap`;
+
+    alter table `non_commercial_banner` 
+       drop 
+       foreign key FK_2l8gpcwh19e7jj513or4r9dvb;
 
     alter table `request_auditor` 
        drop 

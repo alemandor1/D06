@@ -14,14 +14,14 @@ import acme.framework.services.AbstractShowService;
 public class SponsorCommercialBannerShowService implements AbstractShowService<Sponsor, CommercialBanner> {
 
 	@Autowired
-	SponsorCommercialBannerRepository repository;
+	private SponsorCommercialBannerRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		return this.repository.isCorrectCommercialBanner(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

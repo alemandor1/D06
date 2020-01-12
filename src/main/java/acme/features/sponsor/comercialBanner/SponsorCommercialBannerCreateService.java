@@ -15,14 +15,15 @@ import acme.framework.services.AbstractCreateService;
 public class SponsorCommercialBannerCreateService implements AbstractCreateService<Sponsor, CommercialBanner> {
 
 	@Autowired
-	SponsorCommercialBannerRepository repository;
+	private SponsorCommercialBannerRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		Sponsor sponsor = this.repository.findSponsorById(request.getPrincipal().getActiveRoleId());
+		return !sponsor.getCreditCard().isEmpty();
 	}
 
 	@Override
@@ -52,14 +53,23 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 
 	@Override
 	public void create(final Request<CommercialBanner> request, final CommercialBanner entity) {
+		assert request != null;
+		assert entity != null;
+
 		this.repository.save(entity);
 	}
 
 	@Override
 	public CommercialBanner instantiate(final Request<CommercialBanner> request) {
+		assert request != null;
+
 		CommercialBanner result;
 
 		result = new CommercialBanner();
+
+		Sponsor sponsor = this.repository.findSponsorById(request.getPrincipal().getActiveRoleId());
+		result.setCreditCard(sponsor.getCreditCard());
+		result.setSponsor(sponsor);
 
 		return result;
 	}

@@ -16,7 +16,7 @@ import acme.framework.services.AbstractListService;
 public class SponsorCommercialBannerListService implements AbstractListService<Sponsor, CommercialBanner> {
 
 	@Autowired
-	SponsorCommercialBannerRepository repository;
+	private SponsorCommercialBannerRepository repository;
 
 
 	@Override
@@ -39,7 +39,7 @@ public class SponsorCommercialBannerListService implements AbstractListService<S
 	public Collection<CommercialBanner> findMany(final Request<CommercialBanner> request) {
 		assert request != null;
 		Collection<CommercialBanner> result;
-		result = this.repository.findMany();
+		result = this.repository.findMany(request.getPrincipal().getActiveRoleId());
 		return result;
 	}
 

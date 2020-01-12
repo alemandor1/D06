@@ -21,7 +21,7 @@
 	<acme:form-textbox code="sponsor.non-commercial-banner.form.label.jingle" path="jingle"/>
 	<acme:form-url code="sponsor.commercial-banner.form.label.picture" path="picture"/>
 	<jstl:if test="${command != 'create'}">
-	<img src="${picture}" vspace="20" height="200" width="300">
+	<img src="${picture}" vspace="20">
 	<acme:menu-separator/>
 	</jstl:if>
 	

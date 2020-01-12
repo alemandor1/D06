@@ -18,10 +18,10 @@
 <acme:form>
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.slogan" path="slogan"/>
 	<acme:form-url code="sponsor.commercial-banner.form.label.link" path="link"/>
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.credit-card" path="creditCard" placeholder="1234 5678 9012 3456"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.credit-card" path="creditCard" placeholder="1234567890123456"/>
 	<acme:form-url code="sponsor.commercial-banner.form.label.picture" path="picture"/>
 	<jstl:if test="${command != 'create'}">
-	<img src="${picture}" vspace="20" height="200" width="300">
+	<img src="${picture}" vspace="20">
 	<acme:menu-separator/>
 	</jstl:if>
 	

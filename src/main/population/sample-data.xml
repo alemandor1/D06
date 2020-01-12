@@ -317,50 +317,6 @@
 		<property name= "ticker" value= "OOUYB-80671"/>
 	</bean>
 	
-	<!-- Commercial banners -->
-	
-	<bean id= "commercialBanner01" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you want"/>
-		<property name= "link" value= "https://www.google.es/"/>
-		<property name= "creditCard" value= "5062881934253672"/>
-	</bean>
-	
-	<bean id= "commercialBanner02" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you need"/>
-		<property name= "link" value= "https://www.google.es/"/>
-		<property name= "creditCard" value= "5943065748291046"/>
-	</bean>
-	
-	<bean id= "commercialBanner03" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you wish"/>
-		<property name= "link" value= "https://www.google.es/"/>
-		<property name= "creditCard" value= "5278390943671668"/>
-	</bean>
-	
-	<!-- Non commercial banners -->
-	
-	<bean id= "nonCommercialBanner01" class= "acme.entities.banners.NonCommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you want"/>
-		<property name= "link" value= "https://www.google.es/"/>	
-		<property name= "jingle" value= "Happy holidays, and happy new year."/>	
-	</bean>
-	
-	<bean id= "nonCommercialBanner02" class= "acme.entities.banners.NonCommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you need"/>
-		<property name= "link" value= "https://www.google.es/"/>
-	</bean>
-	
-	<bean id= "nonCommercialBanner03" class= "acme.entities.banners.NonCommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you wish"/>
-		<property name= "link" value= "https://www.google.es/"/>
-	</bean>
-	
 	<!-- Duties -->
 	
 	<bean id= "duty01" class= "acme.entities.duties.Duty">
@@ -1119,6 +1075,13 @@
 				<property name="name" value="David" />
 				<property name="surname" value="Walker" />
 				<property name="email" value="david.walker@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="48" />
+						<property name="areaCode" ><null/></property>
+						<property name="number" value="456-735" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -1131,12 +1094,91 @@
 
 	<bean name="sponsor01" class="acme.entities.roles.Sponsor">
 		<property name="userAccount" ref="sponsorUserAccount01" />
-		<property name= "organisationName" value= "US"/>
+		<property name= "organisationName" value= "US1"/>
 		<property name= "creditCard" value= "5062881934253656"/>
 	</bean>
 	
 	<bean name="sponsorAuthenticated01" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="sponsorUserAccount01" />
 	</bean>	
+	
+	<bean name="sponsorUserAccount02" class="acme.framework.entities.UserAccount">
+		<property name="username" value="sponsor02" />
+		<property name="password" value="sponsor02" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="John" />
+				<property name="surname" value="Walker" />
+				<property name="email" value="john.walker@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="47" />
+						<property name="areaCode" value="15115"/>
+						<property name="number" value="645-853-887" />
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="sponsor02"/>
+				<ref bean="sponsorAuthenticated02"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="sponsor02" class="acme.entities.roles.Sponsor">
+		<property name="userAccount" ref="sponsorUserAccount02" />
+		<property name= "organisationName" value= "US2"/>
+		<property name= "creditCard" value= "5062881934253656"/>
+	</bean>
+	
+	<bean name="sponsorAuthenticated02" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="sponsorUserAccount02" />
+	</bean>	
+	
+	<!-- Commercial banners -->
+	
+	<bean id= "commercialBanner01" class= "acme.entities.banners.CommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/8YcXhS0.png"/>
+		<property name= "slogan" value= "The banner you want"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name= "creditCard" value= "5062881934253672"/>
+		<property name= "sponsor" ref= "sponsor01"/>
+	</bean>
+	
+	<bean id= "commercialBanner02" class= "acme.entities.banners.CommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/NGLSjk6.png"/>
+		<property name= "slogan" value= "The banner you need"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name= "creditCard" value= "5943065748291046"/>
+		<property name= "sponsor" ref= "sponsor02"/>
+	</bean>
+	
+	<bean id= "commercialBanner03" class= "acme.entities.banners.CommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/2eVF1HG.png"/>
+		<property name= "slogan" value= "The banner you wish"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name= "creditCard" value= "5278390943671668"/>
+		<property name= "sponsor" ref= "sponsor01"/>
+	</bean>
+	
+	<!-- Non commercial banners -->
+	
+	<bean id= "nonCommercialBanner01" class= "acme.entities.banners.NonCommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/fihihcF.png"/>
+		<property name= "slogan" value= "The banner you want"/>
+		<property name= "link" value= "https://www.google.es/"/>	
+		<property name= "jingle" value= "Happy holidays, and happy new year."/>	
+		<property name= "sponsor" ref= "sponsor02"/>
+	</bean>
+	
+	<bean id= "nonCommercialBanner02" class= "acme.entities.banners.NonCommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/MtBRoNP.png"/>
+		<property name= "slogan" value= "The banner you need"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name= "sponsor" ref= "sponsor01"/>
+	</bean>
 	
 </beans>
