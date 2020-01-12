@@ -31,13 +31,6 @@
 				<property name="name" value="John" />
 				<property name="surname" value="Doe" />
 				<property name="email" value="john.doe@acme.com" />
-				<property name="phone">
-					<bean class="acme.datatypes.Phone">
-						<property name="countryCode"> <null/></property>
-						<property name="areaCode" ><null/></property>
-						<property name="number"><null/></property>
-					</bean>
-				</property>
 			</bean>
 		</property>
 		<property name="roles">
