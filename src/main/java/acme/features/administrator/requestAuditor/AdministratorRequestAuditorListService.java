@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requestAuditor.AuditorStatus;
+import acme.entities.requestAuditor.RequestAuditorStatus;
 import acme.entities.requestAuditor.RequestAuditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -42,7 +42,7 @@ public class AdministratorRequestAuditorListService implements AbstractListServi
 	public Collection<RequestAuditor> findMany(final Request<RequestAuditor> request) {
 		assert request != null;
 		Collection<RequestAuditor> result;
-		result = this.repository.findMany(AuditorStatus.PENDING);
+		result = this.repository.findMany(RequestAuditorStatus.PENDING);
 		return result;
 	}
 

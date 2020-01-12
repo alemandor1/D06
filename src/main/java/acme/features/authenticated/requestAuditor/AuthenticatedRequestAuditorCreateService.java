@@ -6,7 +6,7 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requestAuditor.AuditorStatus;
+import acme.entities.requestAuditor.RequestAuditorStatus;
 import acme.entities.requestAuditor.RequestAuditor;
 import acme.entities.roles.Auditor;
 import acme.entities.spams.Spam;
@@ -59,7 +59,7 @@ public class AuthenticatedRequestAuditorCreateService implements AbstractCreateS
 		int userAccountId;
 		UserAccount userAccount;
 
-		result.setStatus(AuditorStatus.PENDING);
+		result.setStatus(RequestAuditorStatus.PENDING);
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();

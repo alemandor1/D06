@@ -1,6 +1,6 @@
 
 package acme.entities.requestAuditor;
 
-public enum AuditorStatus {
+public enum RequestAuditorStatus {
 	ACCEPTED, PENDING
 }

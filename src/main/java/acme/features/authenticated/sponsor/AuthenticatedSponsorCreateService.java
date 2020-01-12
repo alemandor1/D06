@@ -93,9 +93,9 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 			for (int i = 0; i < creditCard.length() - 1; i++) {
 				listaNumeros.add(Integer.parseInt(String.valueOf(creditCard.charAt(i))));
 			}
-			LuhnCheckValidator v = new LuhnCheckValidator();
-			boolean b = v.isCheckDigitValid(listaNumeros, creditCard.charAt(creditCard.length() - 1));
-			errors.state(request, b, "creditCard", "authenticated.sponsor.error.invalid-credit-card");
+			LuhnCheckValidator validator = new LuhnCheckValidator();
+			boolean isCorrectCreditCard = validator.isCheckDigitValid(listaNumeros, creditCard.charAt(creditCard.length() - 1));
+			errors.state(request, isCorrectCreditCard, "creditCard", "authenticated.sponsor.error.invalid-credit-card");
 		}
 	}
 

@@ -32,7 +32,7 @@ public class RequestAuditor extends DomainEntity {
 
 	@NotNull
 	@Valid
-	private AuditorStatus		status;
+	private RequestAuditorStatus		status;
 
 	@Valid
 	@OneToOne(optional = false)
