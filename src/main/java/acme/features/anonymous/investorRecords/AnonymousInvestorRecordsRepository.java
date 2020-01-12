@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderRepository.java
+ * AuthenticatedInvestorRecordsRepository.java
  *
  * Copyright (c) 2019 Rafael Corchuelo.
  *

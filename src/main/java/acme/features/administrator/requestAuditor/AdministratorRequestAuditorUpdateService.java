@@ -4,7 +4,7 @@ package acme.features.administrator.requestAuditor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.requestAuditor.AuditorStatus;
+import acme.entities.requestAuditor.RequestAuditorStatus;
 import acme.entities.requestAuditor.RequestAuditor;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Errors;
@@ -52,7 +52,7 @@ public class AdministratorRequestAuditorUpdateService implements AbstractUpdateS
 
 		RequestAuditor res;
 		res = this.repository.findOneById(request.getModel().getInteger("id"));
-		res.setStatus(AuditorStatus.ACCEPTED);
+		res.setStatus(RequestAuditorStatus.ACCEPTED);
 
 		return res;
 	}

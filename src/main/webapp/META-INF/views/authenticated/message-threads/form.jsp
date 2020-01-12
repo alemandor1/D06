@@ -16,22 +16,21 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form readonly="false">
-	<jstl:if test="${command == 'update'}">
+	<jstl:if test="${command != 'create' and command != 'show'}">
 		<acme:form-hidden path="messageThreadId"/>
-		<acme:message code="authenticated.message-threads.form.label.message"/>
-		<br/><br/>
 		<acme:form-textbox code="authenticated.message-threads.form.label.username" path="username"/>
-		<acme:form-submit code="authenticated.message-threads.form.button.action-user" action="/authenticated/message-thread/update"/>
+		<acme:form-submit code="authenticated.message-threads.form.button.add-user" action="/authenticated/message-thread/add-user"/>
+		<acme:form-submit code="authenticated.message-threads.form.button.delete-user" action="/authenticated/message-thread/delete-user"/>
 	</jstl:if>
-	<jstl:if test="${command != 'update'}">
+	<jstl:if test="${command == 'show' or command == 'create'}">
 	<acme:form-textbox code="authenticated.message-threads.form.label.title" path="title"/>
-	<jstl:if test="${command != 'create'}">
+	<jstl:if test="${command == 'show'}">
 	<acme:form-moment code="authenticated.message-threads.form.label.moment" path="moment"/>
 	</jstl:if>
   
     <acme:form-submit test="${command != 'create' }" code="authenticated.message-threads.form.button.messages" action="/authenticated/message/list?messageThreadId=${id}" method="get"/>
-    <acme:form-submit test="${command != 'create' and creatorUser}" code="authenticated.message-threads.form.button.list-users-message-thread" action="/authenticated/user-account/list?messageThreadId=${id}&action=users-message-thread" method="get"/>
-    <acme:form-submit test="${command != 'create' and creatorUser}" code="authenticated.message-threads.form.button.list-all-users" action="/authenticated/user-account/list?messageThreadId=${id}&action=all-users" method="get"/>
+    <acme:form-submit test="${command != 'create' and creatorUser}" code="authenticated.message-threads.form.button.list-users-message-thread" action="/authenticated/user-account/list-involved-users?messageThreadId=${id}" method="get"/>
+    <acme:form-submit test="${command != 'create' and creatorUser}" code="authenticated.message-threads.form.button.list-all-users" action="/authenticated/user-account/list-not-involved-users?messageThreadId=${id}" method="get"/>
     <acme:form-submit test="${command != 'create' and creatorUser}" code="authenticated.message-threads.form.button.action-user" action="/authenticated/message-thread/update?messageThreadId=${id}" method="get"/>
 	<acme:form-submit test="${command != 'create' }" code="authenticated.message-threads.form.button.create-message" action="/authenticated/message/create?messageThreadId=${id}" method="get"/>
 	<acme:form-submit test="${command == 'create' }" code="authenticated.message-threads.form.button.create" action="/authenticated/message-thread/create"/>

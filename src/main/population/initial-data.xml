@@ -55,6 +55,13 @@
 				<property name="name" value="Administrator" />
 				<property name="surname" value="Acme.com" />
 				<property name="email" value="administrator@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="34" />
+						<property name="areaCode" ><null/></property>
+						<property name="number" value="455-854-567" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="roles">

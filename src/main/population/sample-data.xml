@@ -317,50 +317,6 @@
 		<property name= "ticker" value= "OOUYB-80671"/>
 	</bean>
 	
-	<!-- Commercial banners -->
-	
-	<bean id= "commercialBanner01" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you want"/>
-		<property name= "link" value= "https://www.google.es/"/>
-		<property name= "creditCard" value= "5062881934253672"/>
-	</bean>
-	
-	<bean id= "commercialBanner02" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you need"/>
-		<property name= "link" value= "https://www.google.es/"/>
-		<property name= "creditCard" value= "5943065748291046"/>
-	</bean>
-	
-	<bean id= "commercialBanner03" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you wish"/>
-		<property name= "link" value= "https://www.google.es/"/>
-		<property name= "creditCard" value= "5278390943671668"/>
-	</bean>
-	
-	<!-- Non commercial banners -->
-	
-	<bean id= "nonCommercialBanner01" class= "acme.entities.banners.NonCommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you want"/>
-		<property name= "link" value= "https://www.google.es/"/>	
-		<property name= "jingle" value= "Happy holidays, and happy new year."/>	
-	</bean>
-	
-	<bean id= "nonCommercialBanner02" class= "acme.entities.banners.NonCommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you need"/>
-		<property name= "link" value= "https://www.google.es/"/>
-	</bean>
-	
-	<bean id= "nonCommercialBanner03" class= "acme.entities.banners.NonCommercialBanner">
-		<property name= "picture" value= "https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/584eb6e95cafe885c4415f12/navidad0.jpg"/>
-		<property name= "slogan" value= "The banner you wish"/>
-		<property name= "link" value= "https://www.google.es/"/>
-	</bean>
-	
 	<!-- Duties -->
 	
 	<bean id= "duty01" class= "acme.entities.duties.Duty">
@@ -472,6 +428,13 @@
 				<property name="name" value="Pablo" />
 				<property name="surname" value="Cubero" />
 				<property name="email" value="pablo.cubero@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="1" />
+						<property name="areaCode"><null/></property> 
+						<property name="number" value="123456" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -501,6 +464,13 @@
 				<property name="name" value="Olivia" />
 				<property name="surname" value="Dominguez" />
 				<property name="email" value="dominguezm@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="44" />
+						<property name="areaCode" value="0"/> 
+						<property name="number" value="123-456" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -564,6 +534,13 @@
 				<property name="name" value="David" />
 				<property name="surname" value="Walker" />
 				<property name="email" value="david.walker@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="34" />
+						<property name="areaCode"><null/> </property>
+						<property name="number" value="123 456 789" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -593,6 +570,13 @@
 				<property name="name" value="María" />
 				<property name="surname" value="García" />
 				<property name="email" value="mgarcia@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="012" />
+						<property name="areaCode" value="0345"/> 
+						<property name="number" value="678-900" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -848,6 +832,13 @@
 				<property name="name" value="Alejandro" />
 				<property name="surname" value="Manzano" />
 				<property name="email" value="alejandro.manzano@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="34" />
+						<property name="areaCode" value="55"/> 
+						<property name="number" value="123-748" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -877,6 +868,13 @@
 				<property name="name" value="Manuel" />
 				<property name="surname" value="Dominguez" />
 				<property name="email" value="manuel.dominguez@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="34" />
+						<property name="areaCode" ><null/></property>
+						<property name="number" value="123456789" />
+					</bean>
+				</property>
 			</bean>
 		</property>
 		<property name="roles">
@@ -958,24 +956,38 @@
 	<bean id="messageThread01" class="acme.entities.messageThreads.MessageThread">
 		<property name= "title" value= "Message thread1"/>
 		<property name= "moment" value= "2019/04/10 14:00"/>
-		<property name= "users">
-			<list>
-				<ref bean="employerUserAccount01"/>
-				<ref bean="employerUserAccount02"/>
-				<ref bean="auditorUserAccount01"/>
-			</list>
-		</property>
 	</bean> 
 	
 	<bean id="messageThread02" class="acme.entities.messageThreads.MessageThread">
 		<property name= "title" value= "Message thread2"/>
 		<property name= "moment" value= "2018/04/25 14:00"/>
-		<property name= "users">
-			<list>
-				<ref bean="employerUserAccount02"/>
-				<ref bean="auditorUserAccount01"/>
-			</list>
-		</property>
+	</bean> 
+	
+	<!-- MessageThreadUserAccount -->
+	
+	<bean id="messageThreadUserAccount01" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "employerUserAccount01"/>
+		<property name= "messageThread" ref= "messageThread01"/>
+	</bean> 
+	
+	<bean id="messageThreadUserAccount02" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "employerUserAccount02"/>
+		<property name= "messageThread" ref= "messageThread01"/>
+	</bean> 
+	
+	<bean id="messageThreadUserAccount03" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "auditorUserAccount01"/>
+		<property name= "messageThread" ref= "messageThread01"/>
+	</bean> 
+	
+	<bean id="messageThreadUserAccount04" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "employerUserAccount02"/>
+		<property name= "messageThread" ref= "messageThread02"/>
+	</bean> 
+	
+	<bean id="messageThreadUserAccount05" class="acme.entities.messageThreads.MessageThreadUserAccount">
+		<property name= "userAccount" ref= "auditorUserAccount01"/>
+		<property name= "messageThread" ref= "messageThread02"/>
 	</bean> 
 	
 	<!-- Messages -->
@@ -1051,5 +1063,122 @@
 		<property name="user" ref="auditorUserAccount01"/>
 		<property name= "messageThread" ref= "messageThread02"/>
 	</bean> 
+	
+	<!-- Sponsor -->
+
+<bean name="sponsorUserAccount01" class="acme.framework.entities.UserAccount">
+		<property name="username" value="sponsor01" />
+		<property name="password" value="sponsor01" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="David" />
+				<property name="surname" value="Walker" />
+				<property name="email" value="david.walker@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="48" />
+						<property name="areaCode" ><null/></property>
+						<property name="number" value="456-735" />
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="sponsor01"/>
+				<ref bean="sponsorAuthenticated01"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="sponsor01" class="acme.entities.roles.Sponsor">
+		<property name="userAccount" ref="sponsorUserAccount01" />
+		<property name= "organisationName" value= "US1"/>
+		<property name= "creditCard" value= "5062881934253656"/>
+	</bean>
+	
+	<bean name="sponsorAuthenticated01" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="sponsorUserAccount01" />
+	</bean>	
+	
+	<bean name="sponsorUserAccount02" class="acme.framework.entities.UserAccount">
+		<property name="username" value="sponsor02" />
+		<property name="password" value="sponsor02" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="John" />
+				<property name="surname" value="Walker" />
+				<property name="email" value="john.walker@acme.com" />
+				<property name="phone">
+					<bean class="acme.datatypes.Phone">
+						<property name="countryCode" value="47" />
+						<property name="areaCode" value="15115"/>
+						<property name="number" value="645-853-887" />
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="sponsor02"/>
+				<ref bean="sponsorAuthenticated02"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="sponsor02" class="acme.entities.roles.Sponsor">
+		<property name="userAccount" ref="sponsorUserAccount02" />
+		<property name= "organisationName" value= "US2"/>
+		<property name= "creditCard" value= "5062881934253656"/>
+	</bean>
+	
+	<bean name="sponsorAuthenticated02" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="sponsorUserAccount02" />
+	</bean>	
+	
+	<!-- Commercial banners -->
+	
+	<bean id= "commercialBanner01" class= "acme.entities.banners.CommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/8YcXhS0.png"/>
+		<property name= "slogan" value= "The banner you want"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name= "creditCard" value= "5062881934253672"/>
+		<property name= "sponsor" ref= "sponsor01"/>
+	</bean>
+	
+	<bean id= "commercialBanner02" class= "acme.entities.banners.CommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/NGLSjk6.png"/>
+		<property name= "slogan" value= "The banner you need"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name= "creditCard" value= "5943065748291046"/>
+		<property name= "sponsor" ref= "sponsor02"/>
+	</bean>
+	
+	<bean id= "commercialBanner03" class= "acme.entities.banners.CommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/2eVF1HG.png"/>
+		<property name= "slogan" value= "The banner you wish"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name= "creditCard" value= "5278390943671668"/>
+		<property name= "sponsor" ref= "sponsor01"/>
+	</bean>
+	
+	<!-- Non commercial banners -->
+	
+	<bean id= "nonCommercialBanner01" class= "acme.entities.banners.NonCommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/fihihcF.png"/>
+		<property name= "slogan" value= "The banner you want"/>
+		<property name= "link" value= "https://www.google.es/"/>	
+		<property name= "jingle" value= "Happy holidays, and happy new year."/>	
+		<property name= "sponsor" ref= "sponsor02"/>
+	</bean>
+	
+	<bean id= "nonCommercialBanner02" class= "acme.entities.banners.NonCommercialBanner">
+		<property name= "picture" value= "https://i.imgur.com/MtBRoNP.png"/>
+		<property name= "slogan" value= "The banner you need"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name= "sponsor" ref= "sponsor01"/>
+	</bean>
 	
 </beans>

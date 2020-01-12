@@ -31,9 +31,9 @@
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
 
-    alter table `consumer` 
+    alter table `commercial_banner` 
        drop 
-       foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
+       foreign key FK_q9id3wc65gg49afc5tlr1c00n;
 
     alter table `duty` 
        drop 
@@ -65,19 +65,23 @@
 
     alter table `message_thread_user_account` 
        drop 
-       foreign key `FKnbmip5t870fxbecafgaxvyde8`;
+       foreign key `FKtchis3o5qij98x87mty6hdk4d`;
 
     alter table `message_thread_user_account` 
        drop 
-       foreign key `FKtchis3o5qij98x87mty6hdk4d`;
+       foreign key `FK5lulj1y29jm6k2b4mle9218ap`;
 
-    alter table `provider` 
+    alter table `non_commercial_banner` 
        drop 
-       foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
+       foreign key FK_2l8gpcwh19e7jj513or4r9dvb;
 
     alter table `request_auditor` 
        drop 
        foreign key `FKa6m3imjvm1a1xjc0u4o4dxmks`;
+
+    alter table `sponsor` 
+       drop 
+       foreign key FK_20xk0ev32hlg96kqynl6laie2;
 
     alter table `worker` 
        drop 
@@ -103,8 +107,6 @@
 
     drop table if exists `company_record`;
 
-    drop table if exists `consumer`;
-
     drop table if exists `descriptor`;
 
     drop table if exists `duty`;
@@ -127,13 +129,13 @@
 
     drop table if exists `offer`;
 
-    drop table if exists `provider`;
-
     drop table if exists `request_auditor`;
 
     drop table if exists `requests`;
 
     drop table if exists `spam`;
+
+    drop table if exists `sponsor`;
 
     drop table if exists `user_account`;
 

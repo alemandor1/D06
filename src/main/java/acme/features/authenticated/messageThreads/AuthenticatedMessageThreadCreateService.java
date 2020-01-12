@@ -1,15 +1,14 @@
 
 package acme.features.authenticated.messageThreads;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThreads.MessageThread;
+import acme.entities.messageThreads.MessageThreadUserAccount;
 import acme.entities.spams.Spam;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -53,12 +52,9 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	@Override
 	public MessageThread instantiate(final Request<MessageThread> request) {
 		assert request != null;
-		UserAccount ua = this.repository.findUserAccountById(request.getPrincipal().getAccountId());
 
 		MessageThread res = new MessageThread();
-		Collection<UserAccount> users = new ArrayList<UserAccount>();
-		users.add(ua);
-		res.setUsers(users);
+
 		return res;
 	}
 
@@ -84,6 +80,12 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 
 		entity.setMoment(new Date(System.currentTimeMillis() - 1));
 		this.repository.save(entity);
-	}
 
+		UserAccount ua = this.repository.findUserAccountById(request.getPrincipal().getAccountId());
+
+		MessageThreadUserAccount messageThreadUserAccount = new MessageThreadUserAccount();
+		messageThreadUserAccount.setUserAccount(ua);
+		messageThreadUserAccount.setMessageThread(entity);
+		this.repository.save(messageThreadUserAccount);
+	}
 }

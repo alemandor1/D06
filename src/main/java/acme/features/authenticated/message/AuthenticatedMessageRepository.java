@@ -30,9 +30,9 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 	@Query("select s from Spam s")
 	Spam findSpam();
 
-	@Query("select count(mt) > 0 from MessageThread mt join mt.users u where u.id = ?1 and mt.id = ?2")
+	@Query("select count(mt) > 0 from MessageThreadUserAccount mt where mt.messageThread.id = ?2 and mt.userAccount.id = ?1")
 	boolean isCorrectMessageThread(int idAccount, int idMessageThread);
 
-	@Query("select count(m) > 0 from Message m where m.id = ?2 and m.messageThread.id in(select mt.id from MessageThread mt join mt.users u where u.id = ?1)")
+	@Query("select count(m) > 0 from Message m where m.id = ?2 and m.messageThread.id in(select mt.messageThread.id from MessageThreadUserAccount mt where mt.userAccount.id = ?1)")
 	boolean isCorrectMessage(int idAccount, int idMessage);
 }
