@@ -44,8 +44,6 @@
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.list-announcement" action="/authenticated/announcement/list"/>
-			<acme:menu-suboption code="master.menu.authenticated.list-request" action="/authenticated/request/list"/>
-			<acme:menu-suboption code="master.menu.authenticated.list-offer" action="/authenticated/offer/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-company-record" action="/authenticated/company-record/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-investor-records" action="/authenticated/investor-records/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-challenge" action="/authenticated/challenge/list"/>

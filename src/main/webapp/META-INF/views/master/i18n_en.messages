@@ -52,12 +52,10 @@ master.menu.administrator.request-auditor = Requests auditor
 # master.menu.authenticated ########################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.list-request = Requests
 master.menu.authenticated.list-announcement = Announcements
 master.menu.authenticated.list-company-record = Companies
 master.menu.authenticated.list-investor-records = Investors
 master.menu.authenticated.list-challenge = Challenges
-master.menu.authenticated.list-offer = Offers
 master.menu.authenticated.list-active-jobs = Jobs
 master.menu.authenticated.list-message-thread = Message Thread (Involved)
 master.menu.authenticated.create-message-thread = Create Message Thread

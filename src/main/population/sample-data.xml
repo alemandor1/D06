@@ -54,62 +54,6 @@
 		<property name="moment" value="2019/05/26 20:00"/>
 	</bean>
 	
-		<!-- Request -->
-	
-	<bean id="request01" class="acme.entities.requests.Requests">
-		<property name="title" value="Request 1"/>
-		<property name="description" value="This is the first request"/>
-		<property name="moment" value="2019/02/01 12:00"/>
-		<property name="deadline" value="2020/05/08 16:00"/>
-		<property name="reward" value="100 EUR"/>
-		<property name="ticker" value="RABCD-12345"/>
-	</bean>
-	
-	<bean id="request02" class="acme.entities.requests.Requests">
-		<property name="title" value="Request 2"/>
-		<property name="description" value="This is the second request"/>
-		<property name="moment" value="2019/03/15 10:00"/>
-		<property name="deadline" value="2021/07/03 14:00"/>
-		<property name="reward" value="150 EUR"/>
-		<property name="ticker" value="RHJLR-89347"/>
-	</bean>
-	
-	<bean id="request03" class="acme.entities.requests.Requests">
-		<property name="title" value="Request 3"/>
-		<property name="description" value="This is the third request"/>
-		<property name="moment" value="2019/02/01 08:00"/>
-		<property name="deadline" value="2020/05/08 20:00"/>
-		<property name="reward" value="200 EUR"/>
-		<property name="ticker" value="RWLOA-46321"/>
-	</bean>
-	
-	<bean id="request04" class="acme.entities.requests.Requests">
-		<property name="title" value="Request 4"/>
-		<property name="description" value="This is the fourth request"/>
-		<property name="moment" value="2014/02/01 08:00"/>
-		<property name="deadline" value="2015/05/08 20:00"/>
-		<property name="reward" value="400 EUR"/>
-		<property name="ticker" value="RPXGY-71301"/>
-	</bean>
-	
-	<bean id="request05" class="acme.entities.requests.Requests">
-		<property name="title" value="Request 5"/>
-		<property name="description" value="This is the fifth request"/>
-		<property name="moment" value="2018/02/01 08:00"/>
-		<property name="deadline" value="2018/05/08 20:00"/>
-		<property name="reward" value="700 EUR"/>
-		<property name="ticker" value="RKMOQ-89261"/>
-	</bean>
-	
-	<bean id="request06" class="acme.entities.requests.Requests">
-		<property name="title" value="Request 6"/>
-		<property name="description" value="This is the sixth request"/>
-		<property name="moment" value="2019/11/01 07:00"/>
-		<property name="deadline" value="2019/12/25 22:00"/>
-		<property name="reward" value="600 EUR"/>
-		<property name="ticker" value="RJBVA-96537"/>
-	</bean>
-	
 	<!-- Company Records -->
 	
 	<bean id="company-record01" class="acme.entities.companyRecords.CompanyRecord">
@@ -159,6 +103,7 @@
 		<property name="phoneNumber" value="+78 (4546) 697796637"/>
 		<property name="email" value="company4@company.es"/>
 	</bean>
+	
 	<!-- Investor Records -->
 	
 	<bean id="investorRecords01" class="acme.entities.investorRecords.InvestorRecords">
@@ -263,58 +208,6 @@
 		<property name="goalGOLD" value="Goal GOLD"/>
 		<property name="goalSILVER" value="Goal SILVER"/>
 		<property name="goalBRONZE" value="Goal BRONZE"/>
-	</bean>
-	
-	<!-- Offers -->
-	
-	<bean id= "offer01" class= "acme.entities.offers.Offer">
-		<property name= "title" value= "Sample offer 01"/>
-		<property name= "moment" value= "2019/08/16 12:00"/>
-		<property name= "deadline" value= "2018/11/25 10:00"/>
-		<property name= "text" value= "This is the first offer"/>
-		<property name= "minMoney" value= "20 EUR"/>
-		<property name= "maxMoney" value= "100 EUR"/>
-		<property name= "ticker" value= "OMJUI-65540"/>
-	</bean>
-	
-	<bean id= "offer02" class= "acme.entities.offers.Offer">
-		<property name= "title" value= "Sample offer 02"/>
-		<property name= "moment" value= "2019/03/19 16:00"/>
-		<property name= "deadline" value= "2019/12/25 10:00"/>
-		<property name= "text" value= "This is another offer"/>
-		<property name= "minMoney" value= "500 EUR"/>
-		<property name= "maxMoney" value= "1000 EUR"/>
-		<property name= "ticker" value= "OIEMJ-46897"/>
-	</bean>
-	
-	<bean id= "offer03" class= "acme.entities.offers.Offer">
-		<property name= "title" value= "Sample offer 03"/>
-		<property name= "moment" value= "2019/01/10 18:00"/>
-		<property name= "deadline" value= "2019/11/30 10:00"/>
-		<property name= "text" value= "This is a great offer"/>
-		<property name= "minMoney" value= "10 EUR"/>
-		<property name= "maxMoney" value= "200 EUR"/>
-		<property name= "ticker" value= "OQAMI-23046"/>
-	</bean>
-	
-	<bean id= "offer04" class= "acme.entities.offers.Offer">
-		<property name= "title" value= "Sample offer 04"/>
-		<property name= "moment" value= "2018/01/10 19:00"/>
-		<property name= "deadline" value= "2018/11/30 10:00"/>
-		<property name= "text" value= "This is a great offer"/>
-		<property name= "minMoney" value= "30 EUR"/>
-		<property name= "maxMoney" value= "500 EUR"/>
-		<property name= "ticker" value= "OPLXX-50786"/>
-	</bean>
-	
-	<bean id= "offer05" class= "acme.entities.offers.Offer">
-		<property name= "title" value= "Sample offer 05"/>
-		<property name= "moment" value= "2019/01/10 10:00"/>
-		<property name= "deadline" value= "2020/08/14 10:00"/>
-		<property name= "text" value= "This is a great offer"/>
-		<property name= "minMoney" value= "70 EUR"/>
-		<property name= "maxMoney" value= "900 EUR"/>
-		<property name= "ticker" value= "OOUYB-80671"/>
 	</bean>
 	
 	<!-- Duties -->

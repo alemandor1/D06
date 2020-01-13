@@ -53,12 +53,10 @@ master.menu.administrator.request-auditor = Solicitudes de auditores
 # master.menu.authenticated ########################################################
 
 master.menu.authenticated = Autenticado
-master.menu.authenticated.list-request = Solicitudes
 master.menu.authenticated.list-announcement = Anuncios
 master.menu.authenticated.list-company-record = Compañías
 master.menu.authenticated.list-investor-records = Inversores
 master.menu.authenticated.list-challenge = Retos
-master.menu.authenticated.list-offer = Ofertas
 master.menu.authenticated.list-active-jobs = Trabajos
 master.menu.authenticated.list-message-thread = Hilos de mensajes (Involucrado)
 master.menu.authenticated.create-message-thread = Crear hilo de mensajes
