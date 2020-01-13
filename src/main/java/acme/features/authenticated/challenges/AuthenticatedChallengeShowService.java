@@ -21,7 +21,7 @@ public class AuthenticatedChallengeShowService implements AbstractShowService<Au
 	public boolean authorise(final Request<Challenge> request) {
 		assert request != null;
 
-		return true;
+		return this.repository.isCorrectChallenge(request.getModel().getInteger("id"));
 	}
 
 	@Override

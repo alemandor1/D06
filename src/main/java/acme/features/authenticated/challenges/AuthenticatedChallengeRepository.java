@@ -17,4 +17,7 @@ public interface AuthenticatedChallengeRepository extends AbstractRepository {
 
 	@Query("select c from Challenge c where c.id = ?1")
 	Challenge findOneById(int id);
+
+	@Query("select count(c) > 0 from Challenge c where c.id = ?1 and now()<=c.deadline")
+	boolean isCorrectChallenge(int id);
 }

@@ -84,12 +84,12 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 		}
 
 		if (!errors.hasErrors("rewardSILVER")) {
-			boolean correctCurrency = entity.getRewardSILVER().getCurrency().equals("EUR") || entity.getRewardGOLD().getCurrency().equals("€");
+			boolean correctCurrency = entity.getRewardSILVER().getCurrency().equals("EUR") || entity.getRewardSILVER().getCurrency().equals("€");
 			errors.state(request, correctCurrency, "rewardSILVER", "administrator.challenge.error.correct-currency");
 		}
 
 		if (!errors.hasErrors("rewardBRONZE")) {
-			boolean correctCurrency = entity.getRewardBRONZE().getCurrency().equals("EUR") || entity.getRewardGOLD().getCurrency().equals("€");
+			boolean correctCurrency = entity.getRewardBRONZE().getCurrency().equals("EUR") || entity.getRewardBRONZE().getCurrency().equals("€");
 			errors.state(request, correctCurrency, "rewardBRONZE", "administrator.challenge.error.correct-currency");
 		}
 
