@@ -33,7 +33,7 @@
 
     alter table `commercial_banner` 
        drop 
-       foreign key FK_q9id3wc65gg49afc5tlr1c00n;
+       foreign key `FKd0k52g7lcacefcp62kb4p9aor`;
 
     alter table `duty` 
        drop 
@@ -73,7 +73,7 @@
 
     alter table `non_commercial_banner` 
        drop 
-       foreign key FK_2l8gpcwh19e7jj513or4r9dvb;
+       foreign key `FKpcpr0xb5k7s4rxv5pulstt5v9`;
 
     alter table `request_auditor` 
        drop 
@@ -100,6 +100,8 @@
     drop table if exists `auditor`;
 
     drop table if exists `authenticated`;
+
+    drop table if exists `banner`;
 
     drop table if exists `challenge`;
 

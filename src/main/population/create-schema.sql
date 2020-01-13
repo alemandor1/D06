@@ -65,6 +65,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `banner` (
+       `id` integer not null,
+        `version` integer not null,
+        `link` varchar(255),
+        `picture` varchar(255),
+        `slogan` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `challenge` (
        `id` integer not null,
         `version` integer not null,
@@ -89,8 +98,8 @@
         `link` varchar(255),
         `picture` varchar(255),
         `slogan` varchar(255),
-        `sponsor_id` integer not null,
         `credit_card` varchar(255),
+        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -202,8 +211,8 @@
         `link` varchar(255),
         `picture` varchar(255),
         `slogan` varchar(255),
-        `sponsor_id` integer not null,
         `jingle` varchar(255),
+        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -367,7 +376,7 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        references `user_account` (`id`);
 
     alter table `commercial_banner` 
-       add constraint FK_q9id3wc65gg49afc5tlr1c00n 
+       add constraint `FKd0k52g7lcacefcp62kb4p9aor` 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
 
@@ -417,7 +426,7 @@ create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
        references `user_account` (`id`);
 
     alter table `non_commercial_banner` 
-       add constraint FK_2l8gpcwh19e7jj513or4r9dvb 
+       add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
 

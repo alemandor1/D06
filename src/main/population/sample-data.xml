@@ -1141,7 +1141,7 @@
 	<!-- Commercial banners -->
 	
 	<bean id= "commercialBanner01" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://i.imgur.com/8YcXhS0.png"/>
+		<property name= "picture" value= "https://ev.us.es/modules/_162_1/BbStudent.png"/>
 		<property name= "slogan" value= "The banner you want"/>
 		<property name= "link" value= "https://www.google.es/"/>
 		<property name= "creditCard" value= "5062881934253672"/>
@@ -1149,7 +1149,7 @@
 	</bean>
 	
 	<bean id= "commercialBanner02" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://i.imgur.com/NGLSjk6.png"/>
+		<property name= "picture" value= "https://www.google.es/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"/>
 		<property name= "slogan" value= "The banner you need"/>
 		<property name= "link" value= "https://www.google.es/"/>
 		<property name= "creditCard" value= "5943065748291046"/>
@@ -1157,7 +1157,7 @@
 	</bean>
 	
 	<bean id= "commercialBanner03" class= "acme.entities.banners.CommercialBanner">
-		<property name= "picture" value= "https://i.imgur.com/2eVF1HG.png"/>
+		<property name= "picture" value= "https://buzonweb.us.es/correoweb/skins/larry/images/roundcube_logo.png"/>
 		<property name= "slogan" value= "The banner you wish"/>
 		<property name= "link" value= "https://www.google.es/"/>
 		<property name= "creditCard" value= "5278390943671668"/>
@@ -1167,7 +1167,7 @@
 	<!-- Non commercial banners -->
 	
 	<bean id= "nonCommercialBanner01" class= "acme.entities.banners.NonCommercialBanner">
-		<property name= "picture" value= "https://i.imgur.com/fihihcF.png"/>
+		<property name= "picture" value= "https://s3.amazonaws.com/bb-student/images/ms-store.png"/>
 		<property name= "slogan" value= "The banner you want"/>
 		<property name= "link" value= "https://www.google.es/"/>	
 		<property name= "jingle" value= "Happy holidays, and happy new year."/>	
@@ -1175,7 +1175,7 @@
 	</bean>
 	
 	<bean id= "nonCommercialBanner02" class= "acme.entities.banners.NonCommercialBanner">
-		<property name= "picture" value= "https://i.imgur.com/MtBRoNP.png"/>
+		<property name= "picture" value= "https://s3.amazonaws.com/bb-student/images/google-play.png"/>
 		<property name= "slogan" value= "The banner you need"/>
 		<property name= "link" value= "https://www.google.es/"/>
 		<property name= "sponsor" ref= "sponsor01"/>
