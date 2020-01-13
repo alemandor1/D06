@@ -42,6 +42,7 @@ public class Application extends DomainEntity {
 	@Past
 	private Date				moment;
 
+	@NotNull
 	@Valid
 	private ApplicationStatus	status;
 

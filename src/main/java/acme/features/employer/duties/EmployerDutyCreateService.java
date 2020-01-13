@@ -53,6 +53,8 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert request != null;
 
 		Duty res = new Duty();
+		Descriptor d = this.repository.findDescriptorOfJob(request.getModel().getInteger("descriptorId"));
+		res.setDescriptor(d);
 		return res;
 	}
 
@@ -69,8 +71,6 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert request != null;
 		assert entity != null;
 
-		Descriptor d = this.repository.findDescriptorOfJob(Integer.parseInt(request.getServletRequest().getParameter("descriptorId")));
-		entity.setDescriptor(d);
 		this.repository.save(entity);
 	}
 

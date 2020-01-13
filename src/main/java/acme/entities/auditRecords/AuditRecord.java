@@ -18,7 +18,6 @@ import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 @Entity
@@ -34,10 +33,9 @@ public class AuditRecord extends DomainEntity {
 	@NotBlank
 	private String				title;
 
-	@NonNull
+	@NotNull
 	private AuditRecordStatus	status;
 
-	@NonNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date				moment;

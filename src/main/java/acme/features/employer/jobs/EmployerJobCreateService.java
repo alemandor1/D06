@@ -71,7 +71,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		}
 
 		if (!errors.hasErrors("salary")) {
-			boolean correctCurrency = entity.getSalary().getCurrency().equals("EUR");
+			boolean correctCurrency = entity.getSalary().getCurrency().equals("EUR") || entity.getSalary().getCurrency().equals("€");
 			errors.state(request, correctCurrency, "salary", "employer.job.error.correct-currency");
 		}
 

@@ -23,7 +23,7 @@ public class PhoneFormatter implements Formatter<Phone> {
 		String countryCodeText, areaCodeText, numberText;
 
 		countryCodeText = String.format("%d", object.getCountryCode());
-		areaCodeText = object.getAreaCode() == null ? " " : String.format(" (%s) ", object.getCountryCode());
+		areaCodeText = object.getAreaCode() == null ? " " : String.format(" (%s) ", object.getAreaCode());
 		numberText = String.format("%s", object.getNumber());
 
 		res = String.format("+%s%s%s", countryCodeText, areaCodeText, numberText);
