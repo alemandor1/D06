@@ -18,4 +18,7 @@ public interface AnonymousAnnouncementRepository extends AbstractRepository {
 
 	@Query("select a from Announcement a where a.id = ?1")
 	Announcement findOneById(int id);
+
+	@Query("select count(a) > 0 from Announcement a where a.id = ?1 and a.moment > ?2")
+	boolean isCorrectAnnouncement(int id, Date date);
 }

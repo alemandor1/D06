@@ -1,6 +1,9 @@
 
 package acme.features.anonymous.announcement;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +24,7 @@ public class AnonymousAnnouncementShowService implements AbstractShowService<Ano
 	public boolean authorise(final Request<Announcement> request) {
 		assert request != null;
 
-		return true;
+		return this.repository.isCorrectAnnouncement(request.getModel().getInteger("id"), Date.valueOf(LocalDate.now().minusMonths(1)));
 	}
 
 	@Override

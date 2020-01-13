@@ -79,17 +79,17 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 		}
 
 		if (!errors.hasErrors("rewardGOLD")) {
-			boolean correctCurrency = entity.getRewardGOLD().getCurrency().equals("EUR");
+			boolean correctCurrency = entity.getRewardGOLD().getCurrency().equals("EUR") || entity.getRewardGOLD().getCurrency().equals("€");
 			errors.state(request, correctCurrency, "rewardGOLD", "administrator.challenge.error.correct-currency");
 		}
 
 		if (!errors.hasErrors("rewardSILVER")) {
-			boolean correctCurrency = entity.getRewardSILVER().getCurrency().equals("EUR");
+			boolean correctCurrency = entity.getRewardSILVER().getCurrency().equals("EUR") || entity.getRewardSILVER().getCurrency().equals("€");
 			errors.state(request, correctCurrency, "rewardSILVER", "administrator.challenge.error.correct-currency");
 		}
 
 		if (!errors.hasErrors("rewardBRONZE")) {
-			boolean correctCurrency = entity.getRewardBRONZE().getCurrency().equals("EUR");
+			boolean correctCurrency = entity.getRewardBRONZE().getCurrency().equals("EUR") || entity.getRewardBRONZE().getCurrency().equals("€");
 			errors.state(request, correctCurrency, "rewardBRONZE", "administrator.challenge.error.correct-currency");
 		}
 

@@ -23,7 +23,7 @@
 		<property name="title" value="Announcement 1"/>
 		<property name="description" value="This is the first announcement"/>
 		<property name="link"><null/></property>
-		<property name="moment" value="2019/10/27 10:00"/>
+		<property name="moment" value="2020/01/13 10:00"/>
 	</bean>
 	
 	<bean id="announcement02" class="acme.entities.announcements.Announcement">
@@ -37,14 +37,14 @@
 		<property name="title" value="Announcement 3"/>
 		<property name="description" value="This is the third announcement"/>
 		<property name="link" value="https://www.google.es/"/>
-		<property name="moment" value="2019/09/26 15:00"/>
+		<property name="moment" value="2020/01/08 15:00"/>
 	</bean>
 	
 	<bean id="announcement04" class="acme.entities.announcements.Announcement">
 		<property name="title" value="Announcement 4"/>
 		<property name="description" value="This is the fourth announcement"/>
 		<property name="link" value="https://www.google.es/"/>
-		<property name="moment" value="2019/10/06 11:00"/>
+		<property name="moment" value="2020/01/06 11:00"/>
 	</bean>
 	
 	<bean id="announcement05" class="acme.entities.announcements.Announcement">
