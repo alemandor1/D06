@@ -129,11 +129,7 @@
 
     drop table if exists `non_commercial_banner`;
 
-    drop table if exists `offer`;
-
     drop table if exists `request_auditor`;
-
-    drop table if exists `requests`;
 
     drop table if exists `spam`;
 

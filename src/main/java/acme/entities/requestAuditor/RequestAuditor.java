@@ -22,20 +22,21 @@ import lombok.Setter;
 })
 public class RequestAuditor extends DomainEntity {
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long		serialVersionUID	= 1L;
 
 	@NotBlank
-	private String				firm;
+	private String					firm;
 
 	@NotBlank
-	private String				responsibility;
+	private String					responsibility;
 
 	@NotNull
 	@Valid
-	private RequestAuditorStatus		status;
+	private RequestAuditorStatus	status;
 
+	@NotNull
 	@Valid
 	@OneToOne(optional = false)
-	private UserAccount			userAccount;
+	private UserAccount				userAccount;
 
 }

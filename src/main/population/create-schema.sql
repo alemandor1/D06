@@ -216,21 +216,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `offer` (
-       `id` integer not null,
-        `version` integer not null,
-        `deadline` datetime(6),
-        `max_money_amount` double precision,
-        `max_money_currency` varchar(255),
-        `min_money_amount` double precision,
-        `min_money_currency` varchar(255),
-        `moment` datetime(6),
-        `text` varchar(255),
-        `ticker` varchar(255),
-        `title` varchar(255),
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `request_auditor` (
        `id` integer not null,
         `version` integer not null,
@@ -238,19 +223,6 @@
         `responsibility` varchar(255),
         `status` integer,
         `user_account_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `requests` (
-       `id` integer not null,
-        `version` integer not null,
-        `deadline` datetime(6),
-        `description` varchar(255),
-        `moment` datetime(6),
-        `reward_amount` double precision,
-        `reward_currency` varchar(255),
-        `ticker` varchar(255),
-        `title` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -319,18 +291,10 @@ create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
 
     alter table `justification` 
        add constraint UK_2ctploatlatw5btxcjwembifo unique (`application_id`);
-create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
-
-    alter table `offer` 
-       add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
 create index IDX4riem6gjhfr8dy2ex40hckw6d on `request_auditor` (`status`);
 
     alter table `request_auditor` 
        add constraint UK_ie2ocrruj5nai12m6h4a0fmtw unique (`user_account_id`);
-create index IDXmly5kwrpgadjkxv5t5dgw36hr on `requests` (`deadline`);
-
-    alter table `requests` 
-       add constraint UK_5v1h0kdr8vcps4i9e55k5gnc8 unique (`ticker`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);

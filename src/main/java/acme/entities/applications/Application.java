@@ -12,6 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
@@ -55,10 +56,12 @@ public class Application extends DomainEntity {
 
 	// Relationships
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private Worker				worker;
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private Job					job;

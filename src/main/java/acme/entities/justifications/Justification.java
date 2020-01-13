@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import acme.entities.applications.Application;
 import acme.framework.entities.DomainEntity;
@@ -23,6 +24,7 @@ public class Justification extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
+	@NotNull
 	@Valid
 	@OneToOne(optional = false)
 	private Application			application;

@@ -58,10 +58,12 @@ public class Job extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private Employer			employer;
 
+	@NotNull
 	@Valid
 	@OneToOne(optional = false)
 	private Descriptor			descriptor;
