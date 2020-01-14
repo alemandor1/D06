@@ -310,6 +310,27 @@
 		<property name= "descriptor" ref="descriptor07"/>
 	</bean>
 	
+	<bean id= "duty15" class= "acme.entities.duties.Duty">
+		<property name= "title" value= "This is a title15"/>
+		<property name= "description" value= "This is a description15"/>
+		<property name= "time" value= "10"/>
+		<property name= "descriptor" ref="descriptor08"/>
+	</bean>
+	
+	<bean id= "duty16" class= "acme.entities.duties.Duty">
+		<property name= "title" value= "This is a title16"/>
+		<property name= "description" value= "This is a description16"/>
+		<property name= "time" value= "90"/>
+		<property name= "descriptor" ref="descriptor08"/>
+	</bean>
+	
+	<bean id= "duty17" class= "acme.entities.duties.Duty">
+		<property name= "title" value= "This is a title17"/>
+		<property name= "description" value= "This is a description17"/>
+		<property name= "time" value= "100"/>
+		<property name= "descriptor" ref="descriptor09"/>
+	</bean>
+	
 	<!-- Employer -->
 	
 	<bean name="employerUserAccount01" class="acme.framework.entities.UserAccount">
@@ -414,6 +435,14 @@
 		<property name= "description" value= "This is a description7"/>
 	</bean>
 	
+	<bean id= "descriptor08" class= "acme.entities.descriptors.Descriptor">
+		<property name= "description" value= "This is a description8"/>
+	</bean>
+	
+	<bean id= "descriptor09" class= "acme.entities.descriptors.Descriptor">
+		<property name= "description" value= "This is a description9"/>
+	</bean>
+	
 	
 	
 	<!-- Worker -->
@@ -511,7 +540,7 @@
 		<property name= "salary" value= "1000 EUR"/>
 		<property name= "link" value= "https://www.google.es/"/>
 		<property name="descriptor" ref="descriptor02"/>
-		<property name="employer" ref="employer02"/>
+		<property name="employer" ref="employer01"/>
 	</bean>
 	
 	<bean id= "job03" class= "acme.entities.jobs.Job">
@@ -569,6 +598,28 @@
 		<property name="employer" ref="employer02"/>
 	</bean>
 	
+	<bean id= "job08" class= "acme.entities.jobs.Job">
+		<property name= "reference" value= "URBFJBDD"/>
+		<property name= "status" value= "PUBLISHED"/>
+		<property name= "title" value= "This is a job08"/>
+		<property name= "deadline" value= "2021/05/02 13:30"/>
+		<property name= "salary" value= "900 EUR"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name="descriptor" ref="descriptor08"/>
+		<property name="employer" ref="employer01"/>
+	</bean>
+	
+	<bean id= "job09" class= "acme.entities.jobs.Job">
+		<property name= "reference" value= "ERTFGFDSG"/>
+		<property name= "status" value= "PUBLISHED"/>
+		<property name= "title" value= "This is a job09"/>
+		<property name= "deadline" value= "2021/10/26 18:30"/>
+		<property name= "salary" value= "300 EUR"/>
+		<property name= "link" value= "https://www.google.es/"/>
+		<property name="descriptor" ref="descriptor09"/>
+		<property name="employer" ref="employer02"/>
+	</bean>
+	
 	<!-- Applications -->
 	
 	<bean id= "application01" class= "acme.entities.applications.Application">
@@ -596,22 +647,22 @@
 	<bean id= "application03" class= "acme.entities.applications.Application">
 		<property name= "reference" value= "WRKS-ABGO"/>
 		<property name= "moment" value= "2019/07/31 22:07"/>
-		<property name= "status" value= "ACCEPTED"/>
+		<property name= "status" value= "REJECTED"/>
 		<property name= "statement" value= "This is an application03"/>
 		<property name= "skills" value= "Leadership"/>
 		<property name= "qualifications" value= "Great qualifications"/>
-		<property name="job" ref="job04"/>
+		<property name="job" ref="job08"/>
 		<property name="worker" ref="worker02"/>
 	</bean>
 	
 	<bean id= "application04" class= "acme.entities.applications.Application">
 		<property name= "reference" value= "WRKS-ACGO"/>
 		<property name= "moment" value= "2019/10/31 12:07"/>
-		<property name= "status" value= "PENDING"/>
+		<property name= "status" value= "REJECTED"/>
 		<property name= "statement" value= "This is an application04"/>
 		<property name= "skills" value= "Adaptability"/>
 		<property name= "qualifications" value= "Proficiency with certain software programs"/>
-		<property name="job" ref="job06"/>
+		<property name="job" ref="job09"/>
 		<property name="worker" ref="worker01"/>
 	</bean>
 	
@@ -640,11 +691,11 @@
 	<bean id= "application07" class= "acme.entities.applications.Application">
 		<property name= "reference" value= "MGHF-WFNE"/>
 		<property name= "moment" value= "2018/01/01 22:00"/>
-		<property name= "status" value= "ACCEPTED"/>
+		<property name= "status" value= "PENDING"/>
 		<property name= "statement" value= "This is an application07"/>
 		<property name= "skills" value= "Leadership"/>
 		<property name= "qualifications" value= "Timeliness and dependability."/>
-		<property name="job" ref="job04"/>
+		<property name="job" ref="job08"/>
 		<property name="worker" ref="worker01"/>
 	</bean>
 	
@@ -655,7 +706,7 @@
 		<property name= "statement" value= "This is an application08"/>
 		<property name= "skills" value= "Teamwork"/>
 		<property name= "qualifications" value= "Timeliness and dependability."/>
-		<property name="job" ref="job06"/>
+		<property name="job" ref="job09"/>
 		<property name="worker" ref="worker02"/>
 	</bean>
 	
@@ -673,7 +724,7 @@
 	<bean id= "application010" class= "acme.entities.applications.Application">
 		<property name= "reference" value= "NYGX-LOID"/>
 		<property name= "moment" value= "2018/04/12 11:00"/>
-		<property name= "status" value= "PENDING"/>
+		<property name= "status" value= "ACCEPTED"/>
 		<property name= "statement" value= "This is an application010"/>
 		<property name= "skills" value= "Communication"/>
 		<property name= "qualifications" value= "Timeliness and dependability."/>
@@ -688,7 +739,7 @@
 		<property name= "statement" value= "This is an application011"/>
 		<property name= "skills" value= "Efficiency"/>
 		<property name= "qualifications" value= "Timeliness and dependability."/>
-		<property name="job" ref="job04"/>
+		<property name="job" ref="job08"/>
 		<property name="worker" ref="worker02"/>
 	</bean>
 	
@@ -699,7 +750,7 @@
 		<property name= "statement" value= "This is an application012"/>
 		<property name= "skills" value= "Attitude"/>
 		<property name= "qualifications" value= "Timeliness and dependability."/>
-		<property name="job" ref="job06"/>
+		<property name="job" ref="job09"/>
 		<property name="worker" ref="worker02"/>
 	</bean>
 	
@@ -712,6 +763,18 @@
 		<property name= "qualifications" value= "Timeliness and dependability."/>
 		<property name="job" ref="job02"/>
 		<property name="worker" ref="worker02"/>
+	</bean>
+	
+	<!-- Justifications -->
+	
+	<bean id= "justification01" class= "acme.entities.justifications.Justification">
+		<property name= "justification" value= "This is a justification01"/>
+		<property name= "application" ref= "application03"/>
+	</bean>
+	
+	<bean id= "justification02" class= "acme.entities.justifications.Justification">
+		<property name= "justification" value= "This is a justification02"/>
+		<property name= "application" ref= "application04"/>
 	</bean>
 	
 	<!-- Auditor -->
@@ -804,7 +867,7 @@
 		<property name= "status" value= "DRAFT"/>
 		<property name= "moment" value= "2018/12/26 19:00"/>
 		<property name= "body" value= "This is a body2"/>
-		<property name= "job" ref= "job02"/>
+		<property name= "job" ref= "job03"/>
 		<property name= "auditor" ref= "auditor02"/>
 	</bean> 
 	
@@ -813,7 +876,7 @@
 		<property name= "status" value= "PUBLISHED"/>
 		<property name= "moment" value= "2018/12/26 19:00"/>
 		<property name= "body" value= "This is a body3"/>
-		<property name= "job" ref= "job06"/>
+		<property name= "job" ref= "job08"/>
 		<property name= "auditor" ref= "auditor01"/>
 	</bean> 
 	
@@ -822,16 +885,16 @@
 		<property name= "status" value= "PUBLISHED"/>
 		<property name= "moment" value= "2018/12/26 19:00"/>
 		<property name= "body" value= "This is a body4"/>
-		<property name= "job" ref= "job03"/>
+		<property name= "job" ref= "job09"/>
 		<property name= "auditor" ref= "auditor02"/>
 	</bean> 
 	
 	<bean id="auditRecord05" class="acme.entities.auditRecords.AuditRecord">
 		<property name= "title" value= "This is a title5"/>
-		<property name= "status" value= "DRAFT"/>
+		<property name= "status" value= "PUBLISHED"/>
 		<property name= "moment" value= "2018/12/26 19:00"/>
 		<property name= "body" value= "This is a body5"/>
-		<property name= "job" ref= "job03"/>
+		<property name= "job" ref= "job02"/>
 		<property name= "auditor" ref= "auditor02"/>
 	</bean> 
 	
@@ -840,7 +903,7 @@
 		<property name= "status" value= "PUBLISHED"/>
 		<property name= "moment" value= "2018/12/26 19:00"/>
 		<property name= "body" value= "This is a body6"/>
-		<property name= "job" ref= "job06"/>
+		<property name= "job" ref= "job03"/>
 		<property name= "auditor" ref= "auditor01"/>
 	</bean> 
   

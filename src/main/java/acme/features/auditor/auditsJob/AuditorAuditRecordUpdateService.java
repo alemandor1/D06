@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditRecords.AuditRecord;
+import acme.entities.auditRecords.AuditRecordStatus;
 import acme.entities.roles.Auditor;
 import acme.entities.spams.Spam;
 import acme.framework.components.Errors;
@@ -25,7 +26,7 @@ public class AuditorAuditRecordUpdateService implements AbstractUpdateService<Au
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
-		return true;
+		return this.repository.isAuthoriseUpdate(request.getModel().getInteger("id"), AuditRecordStatus.DRAFT, request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

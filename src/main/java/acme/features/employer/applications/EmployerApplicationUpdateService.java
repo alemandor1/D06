@@ -23,7 +23,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		return true;
+		return this.repository.isApplicationAtMyJobUpdate(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId(), ApplicationStatus.PENDING);
 	}
 
 	@Override

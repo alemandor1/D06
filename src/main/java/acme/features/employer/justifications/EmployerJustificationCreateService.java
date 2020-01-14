@@ -26,7 +26,7 @@ public class EmployerJustificationCreateService implements AbstractCreateService
 	@Override
 	public boolean authorise(final Request<Justification> request) {
 		assert request != null;
-		return this.repository.isCorrectEmployer(request.getPrincipal().getActiveRoleId());
+		return this.repository.isCorrectEmployer(request.getModel().getInteger("applicationId"), request.getPrincipal().getActiveRoleId(), ApplicationStatus.PENDING);
 	}
 
 	@Override

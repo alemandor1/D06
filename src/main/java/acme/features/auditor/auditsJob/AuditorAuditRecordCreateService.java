@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.auditRecords.AuditRecord;
 import acme.entities.auditRecords.AuditRecordStatus;
 import acme.entities.jobs.Job;
+import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Auditor;
 import acme.entities.spams.Spam;
 import acme.framework.components.Errors;
@@ -27,7 +28,7 @@ public class AuditorAuditRecordCreateService implements AbstractCreateService<Au
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
-		return true;
+		return this.repository.isCorrectJob(request.getModel().getInteger("idJob"), JobStatus.PUBLISHED);
 	}
 
 	@Override

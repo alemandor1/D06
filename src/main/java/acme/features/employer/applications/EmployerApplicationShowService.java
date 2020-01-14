@@ -20,7 +20,7 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
-		return this.repository.isApplicationAtMyJob(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
+		return this.repository.isApplicationAtMyJobShow(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

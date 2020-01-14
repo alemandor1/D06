@@ -22,7 +22,7 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return this.repository.isCorrectDuty(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
+		return this.repository.isCorrectDutyShow(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

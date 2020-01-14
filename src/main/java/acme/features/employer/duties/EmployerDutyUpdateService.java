@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -21,7 +22,7 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return true;
+		return this.repository.isCorrectDutyUpdateDelete(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId(), JobStatus.DRAFT);
 	}
 
 	@Override
