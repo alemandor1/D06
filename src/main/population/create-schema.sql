@@ -65,15 +65,6 @@
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `banner` (
-       `id` integer not null,
-        `version` integer not null,
-        `link` varchar(255),
-        `picture` varchar(255),
-        `slogan` varchar(255),
-        primary key (`id`)
-    ) engine=InnoDB;
-
     create table `challenge` (
        `id` integer not null,
         `version` integer not null,
@@ -89,17 +80,6 @@
         `rewardsilver_amount` double precision,
         `rewardsilver_currency` varchar(255),
         `title` varchar(255),
-        primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `commercial_banner` (
-       `id` integer not null,
-        `version` integer not null,
-        `link` varchar(255),
-        `picture` varchar(255),
-        `slogan` varchar(255),
-        `credit_card` varchar(255),
-        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -202,17 +182,6 @@
         `version` integer not null,
         `message_thread_id` integer not null,
         `user_account_id` integer not null,
-        primary key (`id`)
-    ) engine=InnoDB;
-
-    create table `non_commercial_banner` (
-       `id` integer not null,
-        `version` integer not null,
-        `link` varchar(255),
-        `picture` varchar(255),
-        `slogan` varchar(255),
-        `jingle` varchar(255),
-        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -339,11 +308,6 @@ create index IDX4riem6gjhfr8dy2ex40hckw6d on `request_auditor` (`status`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
-    alter table `commercial_banner` 
-       add constraint `FKd0k52g7lcacefcp62kb4p9aor` 
-       foreign key (`sponsor_id`) 
-       references `sponsor` (`id`);
-
     alter table `duty` 
        add constraint `FK3cc3garl37bl7gswreqwr7pj4` 
        foreign key (`descriptor_id`) 
@@ -388,11 +352,6 @@ create index IDX4riem6gjhfr8dy2ex40hckw6d on `request_auditor` (`status`);
        add constraint `FK5lulj1y29jm6k2b4mle9218ap` 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-
-    alter table `non_commercial_banner` 
-       add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 
-       foreign key (`sponsor_id`) 
-       references `sponsor` (`id`);
 
     alter table `request_auditor` 
        add constraint `FKa6m3imjvm1a1xjc0u4o4dxmks` 

@@ -78,14 +78,6 @@ master.menu.employer.create-job = Create job
 master.menu.worker = Worker
 master.menu.worker.list-applications-mine = My applications
 
-# master.menu.sponsor ##########################################################
-
-master.menu.sponsor = Sponsor
-master.menu.sponsor.list-commercial-banner = My commercial banners
-master.menu.sponsor.create-commercial-banner = Create commercial banner
-master.menu.sponsor.list-non-commercial-banner = My non commercial banners
-master.menu.sponsor.create-non-commercial-banner = Create non commercial banner
-
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account

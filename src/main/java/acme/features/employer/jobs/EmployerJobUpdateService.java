@@ -29,7 +29,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
-		return this.repository.isEmployer(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
+		return this.repository.isEmployerUpdate(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId(), JobStatus.DRAFT);
 	}
 
 	@Override

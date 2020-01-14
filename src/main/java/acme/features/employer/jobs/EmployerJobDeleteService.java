@@ -21,7 +21,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
-		boolean res = this.repository.isEmployer(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
+		boolean res = this.repository.isEmployerShow(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId()) && !this.repository.existsApplicationsJob(request.getModel().getInteger("id"));
 		return res;
 	}
 

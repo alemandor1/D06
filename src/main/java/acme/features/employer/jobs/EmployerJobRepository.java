@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.auditRecords.AuditRecord;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
+import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Employer;
 import acme.entities.spams.Spam;
 import acme.framework.repositories.AbstractRepository;
@@ -47,9 +48,12 @@ public interface EmployerJobRepository extends AbstractRepository {
 	Collection<AuditRecord> auditsOfAJob(int id);
 
 	@Query("select count(j) > 0 from Job j where j.id = ?1 and j.employer.id = ?2")
-	boolean isEmployer(int idJob, int idEmployer);
+	boolean isEmployerShow(int idJob, int idEmployer);
 
 	@Query("select d from Duty d where d.descriptor.id = ?1")
 	Collection<Duty> dutiesOfAJob(int idDescriptor);
+
+	@Query("select count(j) > 0 from Job j where j.id = ?1 and j.employer.id = ?2 and j.status = ?3")
+	boolean isEmployerUpdate(int idJob, int idEmployer, JobStatus status);
 
 }

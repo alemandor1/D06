@@ -69,13 +69,6 @@
 			<acme:menu-suboption code="master.menu.auditor.list-non-jobs-write-auditor" action="/auditor/job/list-non-jobs-write-audit"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
-			<acme:menu-suboption code="master.menu.sponsor.list-commercial-banner" action="/sponsor/commercial-banner/list"/>
-			<acme:menu-suboption code="master.menu.sponsor.create-commercial-banner" action="/sponsor/commercial-banner/create"/>
-			<acme:menu-suboption code="master.menu.sponsor.list-non-commercial-banner" action="/sponsor/non-commercial-banner/list"/>
-			<acme:menu-suboption code="master.menu.sponsor.create-non-commercial-banner" action="/sponsor/non-commercial-banner/create"/>
-	</acme:menu-option>
-
 	</acme:menu-left>
 
 	<acme:menu-right>

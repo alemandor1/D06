@@ -22,6 +22,6 @@ public interface AuditorJobAuditsRepository extends AbstractRepository {
 	@Query("select j from Job j where j.id = ?1")
 	Job findOne(int id);
 
-	@Query("select count(j) > 0 from Job j where j.id = ?1 and j.status = ?2")
-	boolean isDraftJob(int idJob, JobStatus js);
+	@Query("select count(j) > 0 from Job j where j.id = ?1 and j.status = ?2 and ((j.id not in(select a.job.id from AuditRecord a where a.auditor.id = ?3) and now()<=j.deadline) or (j.id in(select a.job.id from AuditRecord a where a.auditor.id = ?3)))")
+	boolean isDraftJob(int idJob, JobStatus js, int idAuditor);
 }

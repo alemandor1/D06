@@ -21,7 +21,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return this.repository.isEmployer(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
+		return this.repository.isEmployerShow(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

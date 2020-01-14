@@ -31,10 +31,6 @@
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
 
-    alter table `commercial_banner` 
-       drop 
-       foreign key `FKd0k52g7lcacefcp62kb4p9aor`;
-
     alter table `duty` 
        drop 
        foreign key `FK3cc3garl37bl7gswreqwr7pj4`;
@@ -71,10 +67,6 @@
        drop 
        foreign key `FK5lulj1y29jm6k2b4mle9218ap`;
 
-    alter table `non_commercial_banner` 
-       drop 
-       foreign key `FKpcpr0xb5k7s4rxv5pulstt5v9`;
-
     alter table `request_auditor` 
        drop 
        foreign key `FKa6m3imjvm1a1xjc0u4o4dxmks`;
@@ -101,11 +93,7 @@
 
     drop table if exists `authenticated`;
 
-    drop table if exists `banner`;
-
     drop table if exists `challenge`;
-
-    drop table if exists `commercial_banner`;
 
     drop table if exists `company_record`;
 
@@ -126,8 +114,6 @@
     drop table if exists `message_thread`;
 
     drop table if exists `message_thread_user_account`;
-
-    drop table if exists `non_commercial_banner`;
 
     drop table if exists `request_auditor`;
 

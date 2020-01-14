@@ -22,7 +22,7 @@ public class AuditorJobAuditsShowService implements AbstractShowService<Auditor,
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return this.repository.isDraftJob(request.getModel().getInteger("id"), JobStatus.PUBLISHED);
+		return this.repository.isDraftJob(request.getModel().getInteger("id"), JobStatus.PUBLISHED, request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

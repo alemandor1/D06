@@ -27,5 +27,6 @@
 	</acme:form-panel>
 	<acme:form-submit code="auditor.jobs-write-auditors.form.button.duties" action="/auditor/duty/list?idJob=${id}" method="get"/>
 	<acme:form-submit code="auditor.jobs-write-auditors.form.button.list-audits-job" action="/auditor/audit-record/list-audits-job?idJob=${id}" method="get"/>
+	<acme:form-submit test="${command == 'show' and principal.hasRole('acme.entities.roles.Auditor')}" code="authenticated.job.form.button.audited" action="/auditor/audit-record/create?idJob=${id}" method="get"/>
   	<acme:form-return code="auditor.jobs-write-auditors.form.button.return"/>
 </acme:form>
