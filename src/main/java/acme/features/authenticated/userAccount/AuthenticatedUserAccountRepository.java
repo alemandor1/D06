@@ -28,7 +28,7 @@ public interface AuthenticatedUserAccountRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = ?1")
 	UserAccount findOneUserAccountById(int id);
 
-	@Query("select ua from UserAccount ua where ua.enabled = true and ua.username != 'administrator' and ua.id not in(select mt.userAccount.id from MessageThreadUserAccount mt where mt.messageThread.id = ?1)")
+	@Query("select ua from UserAccount ua where ua.enabled = true and ua.id not in(select mt.userAccount.id from MessageThreadUserAccount mt where mt.messageThread.id = ?1)")
 	Collection<UserAccount> findManyUsers(int idMessageThread);
 
 	@Query("select mt.userAccount from MessageThreadUserAccount mt where mt.messageThread.id = ?1")
