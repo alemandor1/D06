@@ -21,7 +21,7 @@ public class AuditorDutiesShowService implements AbstractShowService<Auditor, Du
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return this.repository.isCorrectDuty(request.getModel().getInteger("id"), JobStatus.PUBLISHED);
+		return this.repository.isCorrectDuty(request.getModel().getInteger("id"), JobStatus.PUBLISHED, request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

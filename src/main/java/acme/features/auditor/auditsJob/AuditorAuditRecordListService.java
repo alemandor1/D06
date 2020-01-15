@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.auditRecords.AuditRecord;
 import acme.entities.auditRecords.AuditRecordStatus;
+import acme.entities.jobs.JobStatus;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -23,7 +24,7 @@ public class AuditorAuditRecordListService implements AbstractListService<Audito
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
-		return true;
+		return this.repository.isCorrectJobList(request.getModel().getInteger("idJob"), JobStatus.PUBLISHED, request.getPrincipal().getActiveRoleId());
 	}
 
 	@Override

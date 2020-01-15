@@ -35,10 +35,13 @@ public interface AuditorAuditRecordRepository extends AbstractRepository {
 	@Query("select count(a) > 0 from AuditRecord a where a.id = ?1 and (a.status = ?3 or (a.status = ?2 and a.auditor.id = ?4))")
 	boolean isCorrectAuditor(int id, AuditRecordStatus draft, AuditRecordStatus published, int idAuditor);
 
-	@Query("select count(j) > 0 from Job j where j.id = ?1 and j.status = ?2 and now()<=j.deadline")
-	boolean isCorrectJob(int idJob, JobStatus js);
+	@Query("select count(j) > 0 from Job j where j.id = ?1 and j.status = ?2 and ((j.id not in(select a.job.id from AuditRecord a where a.auditor.id = ?3) and now()<=j.deadline) or (j.id in(select a.job.id from AuditRecord a where a.auditor.id = ?3)))")
+	boolean isCorrectJobList(int idJob, JobStatus js, int idAuditor);
 
 	@Query("select count(a) > 0 from AuditRecord a where a.id = ?1 and (a.status = ?2 and a.auditor.id = ?3)")
 	boolean isAuthoriseUpdate(int id, AuditRecordStatus draft, int idAuditor);
+
+	@Query("select count(j) > 0 from Job j where j.id = ?1 and j.status = ?2 and now()<=j.deadline")
+	boolean isCorrectJobCreate(int idJob, JobStatus js);
 
 }

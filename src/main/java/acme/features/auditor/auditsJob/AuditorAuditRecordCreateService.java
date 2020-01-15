@@ -28,7 +28,7 @@ public class AuditorAuditRecordCreateService implements AbstractCreateService<Au
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
-		return this.repository.isCorrectJob(request.getModel().getInteger("idJob"), JobStatus.PUBLISHED);
+		return this.repository.isCorrectJobCreate(request.getModel().getInteger("idJob"), JobStatus.PUBLISHED);
 	}
 
 	@Override
